@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+
+https://bl.ocks.org/d3noob/4db972df5d7efc7d611255d1cc6f3c4f
+
+-->
+<meta charset="utf-8">
+<style> /* set the CSS */
+
+  body { font: 12px Arial;}
+  
+  
+  /* global properties for the plot line properties */
+  path { 
+      stroke: steelblue;
+      stroke-width: 3;
+      fill: none;
+  }
+  .axis { font: 18px sans-serif; }
+  .axis path,
+
+  /*<-- global properties for the axes properties--> */
+  /* be careful about the new comment styles */
+  .axis line {
+      fill: none;
+      stroke: black;
+      stroke-width: 3;
+      shape-rendering: crispEdges;
+  }
+  
+  
+  .legend {
+      font-size: 16px;
+      font-weight: bold;
+      text-anchor: middle;
+          }
+  
+  
+  /*below is function to make grid */
+  .grid .tick {
+      stroke: lightgrey;
+      opacity: 0.7;
+  }
+  .grid path {
+        stroke-width: 0;
+  }
+  /*above is function to make grid */
+
+</style>
+
+
+<body>
+
+<!-- load the d3.js library -->    
+<!-- EXTERNAL LIBS-->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<!--
+<script>
+// -----------------------below is to draw current setup of the experiment -------------------
+var width_uq = 1350,
+    height_uq = 100;
+
+var svg_uq = d3.select("body").append("svg")
+    .attr("width", width_uq)
+    .attr("height", height_uq)
+    .style("border", "0px solid black");
+
+var g_uq = svg_uq.append("g");
+var text_2 = svg_uq.selectAll("text")
+     .data([0])
+     .enter()
+     .append("text")
+     .text("Calibration of soil sensors undertaking at the 1st floor geotechnical laboratory")
+     .style("font-size", "30px")
+     .attr("x", "0")
+     .attr("y", "65");
+
+var img = g_uq.append("svg:image")
+    .attr("xlink:href", "https://outbox.eait.uq.edu.au/uqczhan2/photo_geo_1st/UQ.jpg")
+    .attr("width", 200)
+    .attr("height", 200)
+    .attr("x", 1100)
+    .attr("y",-50);
+// -----------------------above is to draw current setup of the experiment -------------------
+</script>
+
+-->
+<!-- a container with the headlines and descreptions
+http://bl.ocks.org/Matthew-Weber/5645518
+ -->    
+<div id="container">
+      <p id="headline" class="hed" style="font-size:30px">Calibration of soil sensors undertaking at the 1st floor geotechnical laboratory 
+      <img src="https://outbox.eait.uq.edu.au/uqczhan2/photo_geo_1st/UQ.jpg"  align="right" style="width:400px;height:122px;">   </p>  
+      <p class="dek" style="font-size:25px">Description</p> 
+      <p class="dek" style="font-size:17px">    The experiment involves calibrating four soil sensors: (1) soil moisture sensors based on dielectrical resistivity principle
+      (2) soil suction sensor based on dielectrical resistivity, (3) soil suction sensor based on heat dissipation, and (4) soil salinity sensor based on relative humidity. </p>
+      <p class="dek" style="font-size:17px">The calibration of moisture sensor is conducted by the volumetric moisture content derived from scale weight reading, with the moisture cotent obtain by sensor reading.
+      the suction sensor can be calibrated using similar principle with soil water retention curve obtained from Fredlund Pressure Cell. </p>	
+</div>  
+
+
+<script type="text/javascript" src="plot.js"> </script>
+
+
+</body>
+
