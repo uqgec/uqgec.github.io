@@ -240,7 +240,7 @@
           json.forEach(function(d) {
               d.measure_local_time = format_scale(d.measure_local_time);
               d.tas606=d.tas606/16.73;
-              d.te=(d.te-104)/0.00597;
+              d.te=(d.te-89)/0.00597;
           });
   	 
       	data_scale=json;
@@ -269,17 +269,17 @@
                   //.attr("y", height + (margin.bottom/2)+ 5)
                   .attr("class", "legend")    // style the legend
                   .style("fill", color_scale(key_scale[i]))
-                  .on("click", function(){                     // ************
+                  .on("click", function(){                  
                             // Determine if current line is visible 
-                            var active   = act_scale[i] ? false : true,  // ************ 
-                            newOpacity = active ? 0 : 1;             // ************
+                            var active   = act_scale[i] ? false : true,  
+                            newOpacity = active ? 0 : 1;        
                             // Hide or show the elements based on the ID
-                            d3.select("#tag"+key_scale[i].replace(/\s+/g, '')) // *********
-                                .transition().duration(100)          // ************
-                                .style("opacity", newOpacity);       // ************
+                            d3.select("#tag"+key_scale[i].replace(/\s+/g, '')) 
+                                .transition().duration(100)  
+                                .style("opacity", newOpacity);
                             // Update whether or not the elements are active
-                            act_scale[i] = active;                       // ************
-                            })                                       // ************
+                            act_scale[i] = active;        
+                            })                             
                   .text(key_scale[i]); 
            }); // key_scale.foreach
   
