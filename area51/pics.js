@@ -44,7 +44,7 @@
    var imgs = svg_pic_realtime.selectAll("image").data([0]);
        imgs.enter()
        .append("svg:image")
-       .attr("xlink:href", "https://outbox.eait.uq.edu.au/uqczhan2/photo_geo_1st/2017_02_09_12_58_geo_1st.jpg")
+       .attr("xlink:href", "https://outbox.eait.uq.edu.au/uqczhan2/photo_geo_1st/new.jpg")
        .attr("x", "00")
        .attr("y", "50")
        .attr("width", "1280")
