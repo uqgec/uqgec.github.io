@@ -62,34 +62,6 @@ https://bl.ocks.org/d3noob/4db972df5d7efc7d611255d1cc6f3c4f
 <!-- EXTERNAL LIBS-->
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <!--
-<script>
-// -----------------------below is to draw current setup of the experiment -------------------
-var width_uq = 1350,
-    height_uq = 100;
-
-var svg_uq = d3.select("body").append("svg")
-    .attr("width", width_uq)
-    .attr("height", height_uq)
-    .style("border", "0px solid black");
-
-var g_uq = svg_uq.append("g");
-var text_2 = svg_uq.selectAll("text")
-     .data([0])
-     .enter()
-     .append("text")
-     .text("Calibration of soil sensors undertaking at the 1st floor geotechnical laboratory")
-     .style("font-size", "30px")
-     .attr("x", "0")
-     .attr("y", "65");
-
-var img = g_uq.append("svg:image")
-    .attr("xlink:href", "https://outbox.eait.uq.edu.au/uqczhan2/photo_geo_1st/UQ.jpg")
-    .attr("width", 200)
-    .attr("height", 200)
-    .attr("x", 1100)
-    .attr("y",-50);
-// -----------------------above is to draw current setup of the experiment -------------------
-</script>
 
 -->
 <!-- a container with the headlines and descreptions
@@ -106,10 +78,14 @@ http://bl.ocks.org/Matthew-Weber/5645518
 </div>  
 
 
+<!-- load the d3.js library 
 <script type="text/javascript" src="pics.js"> </script>
+ load the d3.js library -->    
 <script type="text/javascript" src="plot_scale_merge.js"> </script>
+<!-- load the d3.js library 
 <script type="text/javascript" src="plot_sensor.js"> </script>
 <script type="text/javascript" src="gec_logo.js"> </script>
+ load the d3.js library -->    
 
 
 </body>
