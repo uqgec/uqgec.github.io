@@ -1,4 +1,5 @@
-  
+//http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects  
+
 var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
 
 // ---------------------below is data defination for the moisture --------------------------
