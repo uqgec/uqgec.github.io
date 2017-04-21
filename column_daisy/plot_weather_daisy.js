@@ -29,7 +29,7 @@ var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
 // ---------------------below is data defination for the IR --------------------------
 ir={};
 ir.key=["ir_up","ir_down"]//,"mo11"];
-ir.ylim=[0,20000];
+ir.ylim=[-500,20000];
 ir.xlabel="TIME";
 ir.ylabel="IR";
 ir.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -37,7 +37,7 @@ ir.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the UV --------------------------
 uv={};
 uv.key=["uv_up","uv_down"]
-uv.ylim=[-50,700];
+uv.ylim=[-50,2000];
 uv.xlabel="TIME";
 uv.ylabel="ULTRA VIOLET READING";
 uv.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -68,7 +68,7 @@ rh.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for light --------------------------
 lt={};
 lt.key=["lt","vis_up","vis_down"]; 
-lt.ylim=[0,2000];
+lt.ylim=[-50,2500];
 lt.xlabel="TIME";
 lt.ylabel="LIGHT";
 lt.color = d3.scaleOrdinal(d3.schemeCategory10);
