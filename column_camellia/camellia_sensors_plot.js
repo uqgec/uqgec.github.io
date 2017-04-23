@@ -35,7 +35,7 @@ scale.ylabel="SCALE READING";
 scale.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the MOISTRE SENSOR --------------------------
 mo={};
-mo.key=["mo23","mo25","mo27","mo31","mo33","mo35","mo37","mo39","mo41"]
+mo.key=["mo23","mo25","mo27","mo31","mo33","mo35","mo37"]
 mo.ylim=[100,600];
 mo.xlabel="TIME";
 mo.ylabel="MOISTURE SENSOR READING";
@@ -43,12 +43,14 @@ mo.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 // ---------------------below is data defination for the UV --------------------------
 temp={};
-temp.key=["t26_begin","t26_end","t26_peak","t45_begin","t45_end","t45_peak","t57_begin","t57_end"
-  ,"t57_peak","t7b_begin","t7b_end","t7b_peak","te2_begin","te2_end","te2_peak","tfb_begin","tfb_end","tfb_peak"]
+//temp.key=["t26_begin","t26_end","t26_peak","t45_begin","t45_end","t45_peak","t57_begin","t57_end"
+//  ,"t57_peak","t7b_begin","t7b_end","t7b_peak","te2_begin","te2_end","te2_peak","tfb_begin","tfb_end","tfb_peak"]
+temp.key=["t26_begin","t45_begin","t57_begin"
+  ,"t7b_begin","te2_begin","tfb_begin"]
 temp.ylim=[10,50];
 temp.xlabel="TIME";
 temp.ylabel="TEMPERATURE (CELSIUS)";
-temp.color = d3.scaleOrdinal(d3.schemeCategory20);
+temp.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 // ---------------------below is data defination for the atmospheric pressure --------------------------
 del_temp={};

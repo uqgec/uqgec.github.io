@@ -37,7 +37,7 @@ ir.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the UV --------------------------
 uv={};
 uv.key=["uv_up","uv_down"]
-uv.ylim=[-50,2000];
+uv.ylim=[-50,1000];
 uv.xlabel="TIME";
 uv.ylabel="ULTRA VIOLET READING";
 uv.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -111,8 +111,8 @@ d3.json(url,  function (error,json) {
         //d.timestamp = format(d.timestamp);
         
         d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/18796291/d3-get-current-time-and-subtract-by-2-hours
-        d.uv_up=d.uv_up*100.0;
-        d.lt=d.lt*100.0;
+        //d.uv_up=d.uv_up*100.0;
+        //d.lt=d.lt*100.0;
         //if (d.p == 0) {d.p=NaN}
         //d.del_temp_28e5_heating=d.suht_28e5_peak-d.suht_28e5_begin;
         //d.del_temp_28e5_cooling=d.suht_28e5_peak-d.suht_28e5_end;
