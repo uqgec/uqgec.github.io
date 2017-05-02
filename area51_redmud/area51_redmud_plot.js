@@ -29,7 +29,7 @@ var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
 // ---------------------below is data defination for the SCALE --------------------------
 scale={};
 scale.key=["te","tas606","commercial"]
-scale.ylim=[14000,16000];
+scale.ylim=[11000,16000];
 scale.xlabel="TIME";
 scale.ylabel="SCALE READING";
 scale.color = d3.scaleOrdinal(d3.schemeCategory10);
