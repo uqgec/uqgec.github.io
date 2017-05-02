@@ -37,7 +37,7 @@ ir.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the UV --------------------------
 uv={};
 uv.key=["uv_up","uv_down"]
-uv.ylim=[-50,700];
+uv.ylim=[-50,1300];
 uv.xlabel="TIME";
 uv.ylabel="ULTRA VIOLET READING";
 uv.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -45,14 +45,14 @@ uv.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the atmospheric pressure --------------------------
 patm={};
 patm.key=["p"];
-patm.ylim=[101000,103000];
+patm.ylim=[100700,103000];
 patm.xlabel="TIME";
 patm.ylabel="ATMOSPHERIC PRESSURE (PA)";
 patm.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for temperature --------------------------
 tc={};
 tc.key=["tc"]; 
-tc.ylim=[10,50];
+tc.ylim=[10,40];
 tc.xlabel="TIME";
 tc.ylabel="TEMPERATURE (CELSIUS)";
 tc.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -60,7 +60,7 @@ tc.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for relative humidity --------------------------
 rh={};
 rh.key=["rh"]; 
-rh.ylim=[0,110];
+rh.ylim=[20,120];
 rh.xlabel="TIME";
 rh.ylabel="RELATIVE HUMIDITY (PERCENT)";
 rh.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -68,7 +68,7 @@ rh.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for light --------------------------
 lt={};
 lt.key=["lt","vis_up","vis_down"]; 
-lt.ylim=[0,2000];
+lt.ylim=[0,2400];
 lt.xlabel="TIME";
 lt.ylabel="LIGHT";
 lt.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -97,7 +97,7 @@ winddir.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for battery -------------------------
 batt={};
 batt.key=["batt"]; 
-batt.ylim=[0,5];
+batt.ylim=[3.9,4.3];
 batt.xlabel="TIME";
 batt.ylabel="BATTERY VOLTAGE (VOLTS)";
 batt.color = d3.scaleOrdinal(d3.schemeCategory10);
