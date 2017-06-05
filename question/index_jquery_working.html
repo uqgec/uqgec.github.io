@@ -1,0 +1,19 @@
+    <!DOCTYPE html>
+    <meta charset="utf-8">
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+
+    <script>
+
+    var data_sensor;
+    //var url =   "https://data.sparkfun.com/output/w5nEnw974mswgrx0ALOE.json?page=1"
+    var url =   "https://data.sparkfun.com/output/w5nEnw974mswgrx0ALOE.json?page=1"
+    $.getJSON(url,  function (json) {
+        data_sensor=json;
+        console.log(data_sensor)
+    }) 
+    </script>
+    
+    </body>
