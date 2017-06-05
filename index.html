@@ -2,11 +2,13 @@
 <header><title>University of Queensland Geotechnical Engineering Center Online Monitoring System</title></header>
 
 <head>
+<link rel="stylesheet" type="text/css" href="main.css">
+
 <link rel="shortcut icon" href="gec.ico">
 </head>
 <body>
 Geotechnical Engineering Center Online Monitoring System
-    <table style="width:60%" border="1">
+    <table style="width:90%" border="1">
       <tr>
         <th>Project name</th>
         <th>location</th> 
@@ -15,39 +17,39 @@ Geotechnical Engineering Center Online Monitoring System
       </tr>
       <tr>
         <td><a href="/column_aster">Column Aster</a> </td>
-        <td>Geo Lab 1st Floor</td> 
-        <td>50</td>
-        <td>50</td>
+        <td>Geolab 1st Floor</td> 
+        <td>Flanged column filled with Samarco Slime</td>
+        <td><span class="jsValue_aster">Downloading</span></td>
       </tr>
       <tr>
         <td><a href="/column_bougainvillea">Column Bougainvillea</a> </td>
         <td>Geolab 1st Floor</td> 
-        <td>94</td>
-        <td>94</td>
+        <td>Acrylic column filled with Samarco Sand</td>
+        <td><span class="jsValue_bougainvillea">Downloading</span></td>
       </tr>
       <tr>
         <td><a href="/column_camellia">Column Camellia</a> </td>
         <td>Roof of Hawken buidling</td> 
         <td>Filled with Samarco Sand</td>
-        <td></td>
+        <td><span class="jsValue_camellia">Downloading</span></td>
       </tr>
       <tr>
         <td><a href="/column_daisy">Column Daisy</a></td>
         <td>Roof of Hawken buidling</td> 
         <td>Filled with Samarco Slime</td>
-        <td></td>
+        <td><span class="jsValue_daisy">Downloading</span></td>
       </tr>
       <tr>
         <td><a href="/area51_redmud">Area51_redmud</a></td>
         <td>Geolab 1st floor</td> 
         <td>Calibrating sensors in redmud</td>
-        <td></td>
+        <td><span class="jsValue_area51_redmud">Downloading</span></td>
       </tr>
       <tr>
         <td><a href="/concrete_curing">Concrete curing</a></td>
         <td>Concrete lab</td> 
-        <td>Monitoring moisture content during the concrete curing processes</td>
-        <td></td>
+        <td>Monitoring moisture content during the concrete curing process</td>
+        <td><span class="jsValue_concrete_curing">Downloading</span></td>
       </tr>
       <tr>
         <td colspan="4"><b>Past Monitoring Results</b></td> 
@@ -56,8 +58,14 @@ Geotechnical Engineering Center Online Monitoring System
         <td><a href="/area51">Area51_coal tailings</a></td>
         <td>Geolab 1st floor</td> 
         <td>Calibrating sensors in coaltailings</td>
-        <td>94</td>
+        <td><span class="jsValue_coal_tailings">Downloading</span></td>
       </tr>
     </table>
 </body>
+<head>
+
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="last_update.js"></script>
+</head>
 </html>

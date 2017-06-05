@@ -1,0 +1,17 @@
+html {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  margin: 1em 0 0.25em 0;
+}
+
+input[type=text] {
+  padding: 0.5em;
+}
+
+.jsValue_aster,.jsValue_bougainvillea ,.jsValue_camellia ,.jsValue_daisy ,.jsValue_area51_redmud,.jsValue_concrete_curing,.jsValue_coal_tailings{
+  color: red;
+
+
