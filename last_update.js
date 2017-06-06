@@ -91,6 +91,7 @@ function get_the_latest_json(input,public_key)
                    d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/187
                 });
                 data_sensor=json;
+		timeout: 1000 ;
                 console.log(data_sensor)
                 //$jsValue4.innerHTML =data_sensor[0]['evap1']
                 //$jsValue4.innerHTML =Math.round((new Date() -data_sensor[0]['timestamp'])/60000)+' min ago'
@@ -100,7 +101,7 @@ function get_the_latest_json(input,public_key)
                 return data_sensor
             }, 
           error : function(xhr, textStatus, errorThrown ) {
-	       wait(500)    
+	       wait(300)    
 	    //alert(xhr.responseText)
             if (textStatus == 'timeout') {
 		//input.innerHTML='bad gateway'
@@ -108,7 +109,9 @@ function get_the_latest_json(input,public_key)
                 this.tryCount++;
                 if (this.tryCount <= this.retryLimit) {
                     //try again
-                    $.ajax(this);
+                    //https://stackoverflow.com/questions/10024469/whats-the-best-way-to-retry-an-ajax-request-on-failure-using-jquery
+                    setTimeout ( function(){ get_the_latest_json(input,public_key) }, $.ajaxSetup().retryAfter );
+                    //$.ajax(this);
                     return;
                 }            
                 return;
