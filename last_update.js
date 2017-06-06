@@ -62,38 +62,49 @@ function millisecondsToStr (milliseconds) {
 }
 
 
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
 
 
-
+var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
+var time_now= new Date()
     
 function get_the_latest_json(input,public_key)
     {
-    var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
-    var time_now= new Date()
        
     $.ajax({
           url:'https://data.sparkfun.com/output/'+public_key+'.json',
           //data:{page:1,sample:1,limit:1}, // working, getting the latest one! 2017-06-05 11:03
           data:{limit:1}, 
           //async: false,  // https://stackoverflow.com/questions/1478295/what-does-async-false-do-in-jquery-ajax
-          async: true,  // https://stackoverflow.com/questions/1478295/what-does-async-false-do-in-jquery-ajax
+          async: false,  // https://stackoverflow.com/questions/1478295/what-does-async-false-do-in-jquery-ajax
           dataType:'jsonp',
           tryCount : 0,
-          retryLimit :120,
+          retryLimit :3,
           success : function (json) {
-            json.forEach(function(d) {
-               d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/187
-               });
-              data_sensor=json;
-              console.log(data_sensor)
-              //$jsValue4.innerHTML =data_sensor[0]['evap1']
-              //$jsValue4.innerHTML =Math.round((new Date() -data_sensor[0]['timestamp'])/60000)+' min ago'
-              //$jsValue4.innerHTML =millisecondsToStr(new Date() -data_sensor[0]['timestamp'])+' ago'
-              input.innerHTML=millisecondsToStr(new Date() -data_sensor[0]['timestamp'])+' ago'
-              return data_sensor
-          }, 
+                json.forEach(function(d) {
+                   d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/187
+                });
+                data_sensor=json;
+                console.log(data_sensor)
+                //$jsValue4.innerHTML =data_sensor[0]['evap1']
+                //$jsValue4.innerHTML =Math.round((new Date() -data_sensor[0]['timestamp'])/60000)+' min ago'
+                //$jsValue4.innerHTML =millisecondsToStr(new Date() -data_sensor[0]['timestamp'])+' ago'
+                input.innerHTML=millisecondsToStr(new Date() -data_sensor[0]['timestamp'])+' ago'
+                //input.innerHTML='bad'
+                return data_sensor
+            }, 
           error : function(xhr, textStatus, errorThrown ) {
+	       wait(500)    
+	    //alert(xhr.responseText)
             if (textStatus == 'timeout') {
+		//input.innerHTML='bad gateway'
+		//return
                 this.tryCount++;
                 if (this.tryCount <= this.retryLimit) {
                     //try again
@@ -102,7 +113,8 @@ function get_the_latest_json(input,public_key)
                 }            
                 return;
             }
-            if (xhr.status == 502) {
+            if (xhr.status == 500) {
+		input.innerHTML='bad gateway1'
                 this.tryCount++;
                 if (this.tryCount <= this.retryLimit) {
                     //try again
@@ -111,17 +123,22 @@ function get_the_latest_json(input,public_key)
                 }            
                 return;
                 //handle error
+		//return
             } else {
                 this.tryCount++;
                 if (this.tryCount <= this.retryLimit) {
                     //try again
-                    $.ajax(this);
-                    return;
+                    //https://stackoverflow.com/questions/10024469/whats-the-best-way-to-retry-an-ajax-request-on-failure-using-jquery
+                    setTimeout ( function(){ get_the_latest_json(input,public_key) }, $.ajaxSetup().retryAfter );
+                    //$.ajax(this);
+                    //return;
                 }            
-                return;
+                //return;
                 //handle error
-            }
-        }
+		//input.innerHTML='bad gateway2'
+		//return
+            }//else
+        } //error
     
     
     });//ajax
