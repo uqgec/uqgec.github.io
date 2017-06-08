@@ -86,12 +86,12 @@ function get_the_latest_json(input,public_key)
           dataType:'jsonp',
           tryCount : 0,
           retryLimit :3,
+          timeout: 1000 ,
           success : function (json) {
                 json.forEach(function(d) {
                    d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/187
                 });
                 data_sensor=json;
-		timeout: 1000 ;
                 console.log(data_sensor)
                 //$jsValue4.innerHTML =data_sensor[0]['evap1']
                 //$jsValue4.innerHTML =Math.round((new Date() -data_sensor[0]['timestamp'])/60000)+' min ago'

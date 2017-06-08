@@ -57,40 +57,139 @@ mo.color = d3.scaleOrdinal(d3.schemeCategory10);
 //del_temp.xlabel="TIME";
 //del_temp.ylabel="DELTA TEMPERTURE (CELSIUS)";
 //del_temp.color = d3.scaleOrdinal(d3.schemeCategory20);
-
-// ----------------------below is to obtain the data from the sensors------------------------------
 var data_sensor;
-var url =   "https://data.sparkfun.com/output/w5nEnw974mswgrx0ALOE.json"
-d3.json(url,  function (error,json) {
-    //if (error) return console.warn(error);
-    if (error) throw error;
-    json.forEach(function(d) {
-        //d.timestamp = format(d.timestamp);
-        
-        d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/18796291/d3-get-current-time-and-subtract-by-2-hours
+public_key='w5nEnw974mswgrx0ALOE';
+grf={scale,mo}
+// ----------------------below is to obtain the data from the sensors------------------------------
 
-        //dataset.date = parseDate(d.date);
-        //dataset.close = +d.close;
-      //if (d.saltrh_3_tp == "NaN") {d.saltrh_3_tp=NaN}
-      //if (d.saltrh_3_rh == "NaN") {d.saltrh_3_rh=NaN}
-    });
-   
-    data_sensor=json;
-    console.log(data_sensor)
-  //       console.log(active1)
-  //  http://stackoverflow.com/questions/10024866/remove-object-from-array-using-javascript
-  //   remove all lines that has NaN
-  //data_sensor=data_sensor.filter(function(el){
-  //  return el.saltrh_3_rh != "NaN";
-  //});
-  //console.log(JSON.stringify(data_sensor, null, ' '));
-  // ----------------------above is to obtain the data ------------------------------
-  
-  plot_figure(scale,data_sensor);
-  plot_figure(mo,data_sensor);
-  //plot_figure(temp   ,data_sensor);
-  //plot_figure(del_temp,data_sensor);
-})  // json
+
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
+function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
+
+function get_data_and_plot(public_key,time_out,retry_limit,data_size)
+    {
+    time_out = defaultFor(time_out, 10000)
+    retry_limit = defaultFor(retry_limit, 3)
+    data_size = defaultFor(data_size, {page:1})
+    $.ajax({
+          url:'https://data.sparkfun.com/output/'+public_key+'.json',
+          //data:{page:1,sample:1,limit:1}, // working, getting the latest one! 2017-06-05 11:03
+          //data:{limit:1},
+          data:data_size,
+          //async: false,  // https://stackoverflow.com/questions/1478295/what-does-async-false-do-in-jque
+          async: false,  // https://stackoverflow.com/questions/1478295/what-does-async-false-do-in-jquery
+          dataType:'jsonp',
+          tryCount : 0,
+          retryLimit :retry_limit,
+          timeout: time_out ,
+          success : function (json) {
+                json.forEach(function(d) {
+                   d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/187
+                });
+                data_sensor=json;
+                console.log(data_sensor)
+//                grf.forEach(function(a) {
+//                    plot_figure(a,d);
+//                });
+
+                // 
+                for (var key in grf) {
+                    plot_figure(grf[key],data_sensor);
+                    };
+                },
+              error : function(xhr, textStatus, errorThrown ) {
+    	       wait(300)    
+    	    //alert(xhr.responseText)
+                if (textStatus == 'timeout') {
+    		//input.innerHTML='bad gateway'
+    		//return
+                    this.tryCount++;
+                    if (this.tryCount <= this.retryLimit) {
+                        //try again
+                        //https://stackoverflow.com/questions/10024469/whats-the-best-way-to-retry-an-ajax-request-on-failure-using-jquery
+                        setTimeout ( function(){ get_data_and_plot(public_key) }, $.ajaxSetup().retryAfter );
+                        //$.ajax(this);
+                        return;
+                    }            
+                    return;
+                }
+                if (xhr.status == 500) {
+    		input.innerHTML='bad gateway1'
+                    this.tryCount++;
+                    if (this.tryCount <= this.retryLimit) {
+                        //try again
+                        $.ajax(this);
+                        return;
+                    }            
+                    return;
+                    //handle error
+    		//return
+                } else {
+                    this.tryCount++;
+                    if (this.tryCount <= this.retryLimit) {
+                        //try again
+                        //https://stackoverflow.com/questions/10024469/whats-the-best-way-to-retry-an-ajax-request-on-failure-using-jquery
+                        setTimeout ( function(){ get_data_and_plot(public_key) }, $.ajaxSetup().retryAfter );
+                        //$.ajax(this);
+                        //return;
+                    }            
+                    //return;
+                    //handle error
+    		//input.innerHTML='bad gateway2'
+    		//return
+                }//else
+            } //error
+               });//ajax
+    }; //function
+
+
+//$.when( get_data_and_plot(public_key);
+//   ).then(
+// plot_figure(scale,data_sensor);
+// plot_figure(mo,data_sensor);
+//); 
+get_data_and_plot(public_key)
+//
+//                plot_figure(scale,data_sensor);
+//                plot_figure(mo,data_sensor);
+////var data_sensor;
+//var url =   "https://data.sparkfun.com/output/w5nEnw974mswgrx0ALOE.json"
+//d3.json(url,  function (error,json) {
+//    //if (error) return console.warn(error);
+//    if (error) throw error;
+//    json.forEach(function(d) {
+//        //d.timestamp = format(d.timestamp);
+//        
+//        d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/18796291/d3-get-current-time-and-subtract-by-2-hours
+//
+//        //dataset.date = parseDate(d.date);
+//        //dataset.close = +d.close;
+//      //if (d.saltrh_3_tp == "NaN") {d.saltrh_3_tp=NaN}
+//      //if (d.saltrh_3_rh == "NaN") {d.saltrh_3_rh=NaN}
+//    });
+//   
+//    data_sensor=json;
+//    console.log(data_sensor)
+//  //       console.log(active1)
+//  //  http://stackoverflow.com/questions/10024866/remove-object-from-array-using-javascript
+//  //   remove all lines that has NaN
+//  //data_sensor=data_sensor.filter(function(el){
+//  //  return el.saltrh_3_rh != "NaN";
+//  //});
+//  //console.log(JSON.stringify(data_sensor, null, ' '));
+//  // ----------------------above is to obtain the data ------------------------------
+//  
+//  plot_figure(scale,data_sensor);
+//  plot_figure(mo,data_sensor);
+//  //plot_figure(temp   ,data_sensor);
+//  //plot_figure(del_temp,data_sensor);
+//})  // json
   
 
  
