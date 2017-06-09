@@ -91,8 +91,8 @@ batt.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
 var data_weather;
-public_key_weather='q5YnK9A9qMCqoNqv78XD';
-grf_weather={ir,uv,patm} //tc,rh,lt,rain,windspeed,winddir,batt}
+public_key_weather='v0NOoW7RLRU3gYpAGdKW';
+grf_weather={ir,uv,patm,tc,rh,lt,rain,windspeed,winddir,batt}
 
 function data_treatment_weather(d){
         d.uv_up=d.uv_up*100.0;
