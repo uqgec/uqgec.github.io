@@ -90,7 +90,7 @@ batt.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
 
-var data_sensor;
+var data_weather;
 public_key='q5YnK9A9qMCqoNqv78XD';
 grf={ir,uv,patm,tc,rh,lt,rain,windspeed,winddir,batt}
 
@@ -100,7 +100,7 @@ function data_treatment_weather(d){
     };
 
 
-get_data_and_plot(public_key,grf,{treatment_func:data_treatment_weather})
+get_data_and_plot(data_weather,public_key,grf,{treatment_func:data_treatment_weather})
 
 
 

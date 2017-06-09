@@ -140,7 +140,7 @@ function wait(ms){
 //  // Code
 //}
 // https://stackoverflow.com/questions/33708413/javascript-default-parameters-in-functions-with-multiple-arguments
-function get_data_and_plot(public_key,grf,options)
+function get_data_and_plot(data_sensor,public_key,grf,options)
     {
     //time_out = defaultFor(time_out, 10000)
     //retry_limit = defaultFor(retry_limit, 3)
@@ -190,7 +190,7 @@ function get_data_and_plot(public_key,grf,options)
                     if (this.tryCount <= this.retryLimit) {
                         //try again
                         //https://stackoverflow.com/questions/10024469/whats-the-best-way-to-retry-an-ajax-request-on-failure-using-jquery
-                        setTimeout ( function(){ get_data_and_plot(public_key,grf,arg) }, $.ajaxSetup().retryAfter );
+                        setTimeout ( function(){ get_data_and_plot(data_sensor,public_key,grf,arg) }, $.ajaxSetup().retryAfter );
                         //$.ajax(this);
                         return;
                     }            
@@ -212,7 +212,7 @@ function get_data_and_plot(public_key,grf,options)
                     if (this.tryCount <= this.retryLimit) {
                         //try again
                         //https://stackoverflow.com/questions/10024469/whats-the-best-way-to-retry-an-ajax-request-on-failure-using-jquery
-                        setTimeout ( function(){ get_data_and_plot(public_key,grf,arg) }, $.ajaxSetup().retryAfter );
+                        setTimeout ( function(){ get_data_and_plot(data_sensor,public_key,grf,arg) }, $.ajaxSetup().retryAfter );
                         //$.ajax(this);
                         //return;
                     }            

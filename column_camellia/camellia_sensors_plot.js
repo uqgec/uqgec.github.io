@@ -45,7 +45,7 @@ del_temp.color = d3.scaleOrdinal(d3.schemeCategory20);
 
 var data_sensor;
 public_key='q5YnK9A9qMCqoNqv78XD';
-grf={scale,mo,temp,del_temp}
+grf_2={scale,mo,temp,del_temp}
 
 // ----------------------below is to obtain the data from the sensors------------------------------
 
@@ -69,7 +69,7 @@ function data_treatment(d) {
    };
 
 
-get_data_and_plot(public_key,grf,{treatment_func:data_treatment})
+get_data_and_plot(data_sensor,public_key,grf_2,{treatment_func:data_treatment})
 
 
 
