@@ -1,20 +1,3 @@
-//http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects  
-
-
-// -------------------------- below is the function to creat grid lines ---------------
-// gridlines in x axis function
-function make_x_gridlines(x_ax) {		
-    return d3.axisBottom(x_ax)
-        .ticks(5)
-}
-
-// gridlines in y axis function
-function make_y_gridlines(y_ax) {		
-    return d3.axisLeft(y_ax)
-        .ticks(5)
-}
-// -------------------------- above is the function to creat grid lines ---------------
-
 
 // below is needed to initializating the picture
 
@@ -60,56 +43,34 @@ del_temp.xlabel="TIME";
 del_temp.ylabel="DELTA TEMPERTURE (CELSIUS)";
 del_temp.color = d3.scaleOrdinal(d3.schemeCategory20);
 
-// ----------------------below is to obtain the data from the sensors------------------------------
 var data_sensor;
-var url =   "https://data.sparkfun.com/output/q5YnK9A9qMCqoNqv78XD.json"
-d3.json(url,  function (error,json) {
-    //if (error) return console.warn(error);
-    if (error) throw error;
-    json.forEach(function(d) {
-        //d.timestamp = format(d.timestamp);
-        
-        d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/18796291/d3-get-current-time-and-subtract-by-2-hours
-        d.uv_up=d.uv_up*100.0;
-        d.lt=d.lt*100.0;
-        //if (d.p == 0) {d.p=NaN}
-        d.dt26_heat=d.t26_peak-d.t26_begin;
-        d.dt26_cool=d.t26_peak-d.t26_end;
-        d.dt45_heat=d.t45_peak-d.t45_begin;
-        d.dt45_cool=d.t45_peak-d.t45_end;
-        d.dt57_heat=d.t57_peak-d.t57_begin;
-        d.dt57_cool=d.t57_peak-d.t57_end;
-        d.dt7b_heat=d.t7b_peak-d.t7b_begin;
-        d.dt7b_cool=d.t7b_peak-d.t7b_end;
-        d.dte2_heat=d.te2_peak-d.te2_begin;
-        d.dte2_cool=d.te2_peak-d.te2_end;
-        d.dtfb_heat=d.tfb_peak-d.tfb_begin;
-        d.dtfb_cool=d.tfb_peak-d.tfb_end;
+public_key='q5YnK9A9qMCqoNqv78XD';
+grf={scale,mo,temp,del_temp}
 
-        //dataset.date = parseDate(d.date);
-        //dataset.close = +d.close;
-      //if (d.saltrh_3_tp == "NaN") {d.saltrh_3_tp=NaN}
-      //if (d.saltrh_3_rh == "NaN") {d.saltrh_3_rh=NaN}
-    });
-   
-    data_sensor=json;
-    console.log(data_sensor)
-  //       console.log(active1)
-  //  http://stackoverflow.com/questions/10024866/remove-object-from-array-using-javascript
-  //   remove all lines that has NaN
-  //data_sensor=data_sensor.filter(function(el){
-  //  return el.saltrh_3_rh != "NaN";
-  //});
-  //console.log(JSON.stringify(data_sensor, null, ' '));
-  // ----------------------above is to obtain the data ------------------------------
-  
-  plot_figure(scale,data_sensor);
-  plot_figure(mo,data_sensor);
-  plot_figure(temp   ,data_sensor);
-  plot_figure(del_temp,data_sensor);
-})  // json
-  
+// ----------------------below is to obtain the data from the sensors------------------------------
 
- 
-  
-  
+function data_treatment(d) {
+
+   d.uv_up=d.uv_up*100.0;
+   d.lt=d.lt*100.0;
+   //if (d.p == 0) {d.p=NaN}
+   d.dt26_heat=d.t26_peak-d.t26_begin;
+   d.dt26_cool=d.t26_peak-d.t26_end;
+   d.dt45_heat=d.t45_peak-d.t45_begin;
+   d.dt45_cool=d.t45_peak-d.t45_end;
+   d.dt57_heat=d.t57_peak-d.t57_begin;
+   d.dt57_cool=d.t57_peak-d.t57_end;
+   d.dt7b_heat=d.t7b_peak-d.t7b_begin;
+   d.dt7b_cool=d.t7b_peak-d.t7b_end;
+   d.dte2_heat=d.te2_peak-d.te2_begin;
+   d.dte2_cool=d.te2_peak-d.te2_end;
+   d.dtfb_heat=d.tfb_peak-d.tfb_begin;
+   d.dtfb_cool=d.tfb_peak-d.tfb_end;
+   };
+
+
+get_data_and_plot(public_key,grf,{treatment_func:data_treatment})
+
+
+
+

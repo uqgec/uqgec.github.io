@@ -1,19 +1,3 @@
-//http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects  
-
-
-// -------------------------- below is the function to creat grid lines ---------------
-// gridlines in x axis function
-function make_x_gridlines(x_ax) {		
-    return d3.axisBottom(x_ax)
-        .ticks(5)
-}
-
-// gridlines in y axis function
-function make_y_gridlines(y_ax) {		
-    return d3.axisLeft(y_ax)
-        .ticks(5)
-}
-// -------------------------- above is the function to creat grid lines ---------------
 
 
 // below is needed to initializating the picture
@@ -29,7 +13,7 @@ var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
 // ---------------------below is data defination for the SCALE --------------------------
 scale={};
 scale.key=["mo31",]
-scale.ylim=[100,300];
+scale.ylim=[100,500];
 scale.xlabel="TIME";
 scale.ylabel="SCALE READING";
 scale.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -41,112 +25,11 @@ mo.xlabel="TIME";
 mo.ylabel="MOISTURE SENSOR READING";
 mo.color = d3.scaleOrdinal(d3.schemeCategory10);
 
-//// ---------------------below is data defination for the UV --------------------------
-//temp={};
-//temp.key=["t26_begin","t45_begin","t57_begin"
-//  ,"t7b_begin","te2_begin","tfb_begin"]
-//temp.ylim=[10,50];
-//temp.xlabel="TIME";
-//temp.ylabel="TEMPERATURE (CELSIUS)";
-//temp.color = d3.scaleOrdinal(d3.schemeCategory10);
-//
-//// ---------------------below is data defination for the atmospheric pressure --------------------------
-//del_temp={};
-//del_temp.key=["dt26_heat","dt26_cool","dt45_heat","dt45_cool","dt57_heat","dt57_cool","dt7b_heat","dt7b_cool","dte2_heat","dte2_cool","dtfb_heat","dtfb_cool"];
-//del_temp.ylim=[-3,20];
-//del_temp.xlabel="TIME";
-//del_temp.ylabel="DELTA TEMPERTURE (CELSIUS)";
-//del_temp.color = d3.scaleOrdinal(d3.schemeCategory20);
+
+
 var data_sensor;
 public_key='w5nEnw974mswgrx0ALOE';
 grf={scale,mo}
-// ----------------------below is to obtain the data from the sensors------------------------------
-
-
-function wait(ms){
-   var start = new Date().getTime();
-   var end = start;
-   while(end < start + ms) {
-     end = new Date().getTime();
-  }
-}
-function defaultFor(arg, val) { return typeof arg !== 'undefined' ? arg : val; }
-
-function get_data_and_plot(public_key,time_out,retry_limit,data_size)
-    {
-    time_out = defaultFor(time_out, 10000)
-    retry_limit = defaultFor(retry_limit, 3)
-    data_size = defaultFor(data_size, {page:1})
-    $.ajax({
-          url:'https://data.sparkfun.com/output/'+public_key+'.json',
-          //data:{page:1,sample:1,limit:1}, // working, getting the latest one! 2017-06-05 11:03
-          //data:{limit:1},
-          data:data_size,
-          //async: false,  // https://stackoverflow.com/questions/1478295/what-does-async-false-do-in-jque
-          async: false,  // https://stackoverflow.com/questions/1478295/what-does-async-false-do-in-jquery
-          dataType:'jsonp',
-          tryCount : 0,
-          retryLimit :retry_limit,
-          timeout: time_out ,
-          success : function (json) {
-                json.forEach(function(d) {
-                   d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/187
-                });
-                data_sensor=json;
-                console.log(data_sensor)
-//                grf.forEach(function(a) {
-//                    plot_figure(a,d);
-//                });
-
-                // 
-                for (var key in grf) {
-                    plot_figure(grf[key],data_sensor);
-                    };
-                },
-              error : function(xhr, textStatus, errorThrown ) {
-    	       wait(300)    
-    	    //alert(xhr.responseText)
-                if (textStatus == 'timeout') {
-    		//input.innerHTML='bad gateway'
-    		//return
-                    this.tryCount++;
-                    if (this.tryCount <= this.retryLimit) {
-                        //try again
-                        //https://stackoverflow.com/questions/10024469/whats-the-best-way-to-retry-an-ajax-request-on-failure-using-jquery
-                        setTimeout ( function(){ get_data_and_plot(public_key) }, $.ajaxSetup().retryAfter );
-                        //$.ajax(this);
-                        return;
-                    }            
-                    return;
-                }
-                if (xhr.status == 500) {
-    		input.innerHTML='bad gateway1'
-                    this.tryCount++;
-                    if (this.tryCount <= this.retryLimit) {
-                        //try again
-                        $.ajax(this);
-                        return;
-                    }            
-                    return;
-                    //handle error
-    		//return
-                } else {
-                    this.tryCount++;
-                    if (this.tryCount <= this.retryLimit) {
-                        //try again
-                        //https://stackoverflow.com/questions/10024469/whats-the-best-way-to-retry-an-ajax-request-on-failure-using-jquery
-                        setTimeout ( function(){ get_data_and_plot(public_key) }, $.ajaxSetup().retryAfter );
-                        //$.ajax(this);
-                        //return;
-                    }            
-                    //return;
-                    //handle error
-    		//input.innerHTML='bad gateway2'
-    		//return
-                }//else
-            } //error
-               });//ajax
-    }; //function
 
 
 //$.when( get_data_and_plot(public_key);
@@ -154,7 +37,7 @@ function get_data_and_plot(public_key,time_out,retry_limit,data_size)
 // plot_figure(scale,data_sensor);
 // plot_figure(mo,data_sensor);
 //); 
-get_data_and_plot(public_key)
+get_data_and_plot(public_key,grf,{})
 //
 //                plot_figure(scale,data_sensor);
 //                plot_figure(mo,data_sensor);

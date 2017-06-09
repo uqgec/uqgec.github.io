@@ -1,4 +1,20 @@
 
+//http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects  
+
+
+// -------------------------- below is the function to creat grid lines ---------------
+// gridlines in x axis function
+function make_x_gridlines(x_ax) {		
+    return d3.axisBottom(x_ax)
+        .ticks(5)
+}
+
+// gridlines in y axis function
+function make_y_gridlines(y_ax) {		
+    return d3.axisLeft(y_ax)
+        .ticks(5)
+}
+// -------------------------- above is the function to creat grid lines ---------------
 function plot_figure(prop,data_weather) { 
 
     prop.legendSpace=width/prop.key.length;
