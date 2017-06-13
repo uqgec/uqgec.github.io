@@ -1,20 +1,5 @@
-//http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects  
-
-
-// -------------------------- below is the function to creat grid lines ---------------
-// gridlines in x axis function
-function make_x_gridlines(x_ax) {		
-    return d3.axisBottom(x_ax)
-        .ticks(5)
-}
-
-// gridlines in y axis function
-function make_y_gridlines(y_ax) {		
-    return d3.axisLeft(y_ax)
-        .ticks(5)
 }
 // -------------------------- above is the function to creat grid lines ---------------
-
 
 // below is needed to initializating the picture
 
@@ -101,6 +86,13 @@ batt.ylim=[0,5];
 batt.xlabel="TIME";
 batt.ylabel="BATTERY VOLTAGE (VOLTS)";
 batt.color = d3.scaleOrdinal(d3.schemeCategory10);
+
+var data_weather;
+public_key_daisy_weather='JxO9ydlRjnuXARaZX5od';
+grf_weather_daisy={ir,uv,patm,tc,rh,lt,rain,windspeed,winddir,batt}
+
+get_data_and_plot(data_weather,public_key_daisy_weather,grf_weather_daisy)
+
 // ----------------------below is to obtain the data from the sensors------------------------------
 var data_weather;
 var url =   "https://data.sparkfun.com/output/JxO9ydlRjnuXARaZX5od.json"

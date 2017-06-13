@@ -36,7 +36,7 @@ grf={scale,mo}
 
   
 
-get_data_and_plot(public_key,grf,{})
+get_data_and_plot(data_sensor,public_key,grf,{})
  
   
   

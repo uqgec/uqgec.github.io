@@ -37,7 +37,7 @@ grf={scale,mo}
 // plot_figure(scale,data_sensor);
 // plot_figure(mo,data_sensor);
 //); 
-get_data_and_plot(public_key,grf,{})
+get_data_and_plot(data_sensor,public_key,grf,{})
 //
 //                plot_figure(scale,data_sensor);
 //                plot_figure(mo,data_sensor);
