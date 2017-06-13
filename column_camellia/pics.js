@@ -10,7 +10,7 @@ var text = svg_pic.selectAll("text")
      .data([0])
      .enter()
      .append("text")
-     .text("Experimental Setup")
+     .text("Roof Setup")
      .style("font-size", "25px")
      .attr("x", "0")
      .attr("y", "20");
@@ -18,11 +18,38 @@ var text = svg_pic.selectAll("text")
 var imgs = svg_pic.selectAll("image").data([0]);
      imgs.enter()
      .append("svg:image")
-     .attr("xlink:href", "https://outbox.eait.uq.edu.au/uqczhan2/photo_geo_1st/setup.PNG")
+     .attr("xlink:href", "https://outbox.eait.uq.edu.au/uqczhan2/Photos/roof_setup_1.jpg")
      .attr("x", "00")
      .attr("y", "30")
      .attr("width", "1280")
      .attr("height", "1024");
+
+var imgs1 = svg_pic.selectAll("image").data([0]);
+     imgs.enter()
+     .append("svg:image")
+     .attr("xlink:href", "https://outbox.eait.uq.edu.au/uqczhan2/Photos/camelias_no_water.jpg")
+     .attr("x", "00")
+     .attr("y", "50")
+     .attr("width", "1280")
+     .attr("height", "1024");
+
+var text = svg_pic.selectAll("text")
+     .data([0])
+     .enter()
+     .append("text")
+     .text("Column Setup")
+     .style("font-size", "25px")
+     .attr("x", "0")
+     .attr("y", "20");
+
+//var imgs2 = svg_pic.selectAll("image").data([0]);
+//     imgs.enter()
+//     .append("svg:image")
+//     .attr("xlink:href", "https://outbox.eait.uq.edu.au/uqczhan2/Photos/")
+//     .attr("x", "00")
+//     .attr("y", "30")
+//     .attr("width", "1280")
+//     .attr("height", "1024");
 
 
 // ----------------------below is to draw picture for the entire setup ---------------------
@@ -36,7 +63,7 @@ var text = svg_pic_realtime.selectAll("text")
      .data([0])
      .enter()
      .append("text")
-     .text("Real-time snapshot of tailings surface")
+     .text("Real-time snapshot of roof condition")
      .style("font-size", "25px")
      .attr("x", "0")
      .attr("y", "20");
