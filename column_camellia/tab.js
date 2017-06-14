@@ -45,8 +45,8 @@ get_data_and_plot(data_sensor_daisy,public_key,grf_2,{treatment_func:data_treatm
 // eq(1) means the second tab
 
 $( ".tablinks" ).eq(1).one( "click", function() {
-get_data_and_plot(data_weather,public_key_weather,grf_weather,{treatment_func:data_treatment_weather,plot_location:'#Paris',data_size:{page:1-3}})
-get_data_and_plot(data_sensor_daisy,public_key,grf_2,{treatment_func:data_treatment_sensor_daisy,plot_location:'#Paris',data_size:{page:1-3}})
+get_data_and_plot(data_weather,public_key_weather,grf_weather,{treatment_func:data_treatment_weather,plot_location:'#Paris',data_size:{page:1-2}})
+get_data_and_plot(data_sensor_daisy,public_key,grf_2,{treatment_func:data_treatment_sensor_daisy,plot_location:'#Paris',data_size:{page:1-2}})
 });
 
 

@@ -90,53 +90,53 @@ var data_weather;
 public_key_daisy_weather='JxO9ydlRjnuXARaZX5od';
 grf_weather_daisy={ir,uv,patm,tc,rh,lt,rain,windspeed,winddir,batt}
 
-get_data_and_plot(data_weather,public_key_daisy_weather,grf_weather_daisy)
+//get_data_and_plot(data_weather,public_key_daisy_weather,grf_weather_daisy)
 
-// ----------------------below is to obtain the data from the sensors------------------------------
-var data_weather;
-var url =   "https://data.sparkfun.com/output/JxO9ydlRjnuXARaZX5od.json"
-d3.json(url,  function (error,json) {
-    //if (error) return console.warn(error);
-    if (error) throw error;
-    json.forEach(function(d) {
-        //d.timestamp = format(d.timestamp);
-        
-        d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/18796291/d3-get-current-time-and-subtract-by-2-hours
-        //d.uv_up=d.uv_up*100.0;
-        //d.lt=d.lt*100.0;
-        //if (d.p == 0) {d.p=NaN}
-        //d.del_temp_28e5_heating=d.suht_28e5_peak-d.suht_28e5_begin;
-        //d.del_temp_28e5_cooling=d.suht_28e5_peak-d.suht_28e5_end;
-        //d.del_temp_2847_heating=d.suht_2847_peak-d.suht_2847_begin;
-        //d.del_temp_2847_cooling=d.suht_2847_peak-d.suht_2847_end;
-        //dataset.date = parseDate(d.date);
-        //dataset.close = +d.close;
-      //if (d.saltrh_3_tp == "NaN") {d.saltrh_3_tp=NaN}
-      //if (d.saltrh_3_rh == "NaN") {d.saltrh_3_rh=NaN}
-    });
-   
-    data_weather=json;
-    console.log(data_weather)
-  //       console.log(active1)
-  //  http://stackoverflow.com/questions/10024866/remove-object-from-array-using-javascript
-  //   remove all lines that has NaN
-  //data_weather=data_weather.filter(function(el){
-  //  return el.saltrh_3_rh != "NaN";
-  //});
-  //console.log(JSON.stringify(data_weather, null, ' '));
-  // ----------------------above is to obtain the data ------------------------------
-  
-  plot_figure(ir,data_weather);
-  plot_figure(uv   ,data_weather);
-  plot_figure(patm ,data_weather);
-  plot_figure(tc,data_weather);
-  plot_figure(rh,data_weather);
-  plot_figure(lt   ,data_weather);
-  plot_figure(rain ,data_weather);
-  plot_figure(windspeed,data_weather);
-  plot_figure(winddir,data_weather);
-  plot_figure(batt,data_weather);
-})  // json
+//// ----------------------below is to obtain the data from the sensors------------------------------
+//var data_weather;
+//var url =   "https://data.sparkfun.com/output/JxO9ydlRjnuXARaZX5od.json"
+//d3.json(url,  function (error,json) {
+//    //if (error) return console.warn(error);
+//    if (error) throw error;
+//    json.forEach(function(d) {
+//        //d.timestamp = format(d.timestamp);
+//        
+//        d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/18796291/d3-get-current-time-and-subtract-by-2-hours
+//        //d.uv_up=d.uv_up*100.0;
+//        //d.lt=d.lt*100.0;
+//        //if (d.p == 0) {d.p=NaN}
+//        //d.del_temp_28e5_heating=d.suht_28e5_peak-d.suht_28e5_begin;
+//        //d.del_temp_28e5_cooling=d.suht_28e5_peak-d.suht_28e5_end;
+//        //d.del_temp_2847_heating=d.suht_2847_peak-d.suht_2847_begin;
+//        //d.del_temp_2847_cooling=d.suht_2847_peak-d.suht_2847_end;
+//        //dataset.date = parseDate(d.date);
+//        //dataset.close = +d.close;
+//      //if (d.saltrh_3_tp == "NaN") {d.saltrh_3_tp=NaN}
+//      //if (d.saltrh_3_rh == "NaN") {d.saltrh_3_rh=NaN}
+//    });
+//   
+//    data_weather=json;
+//    console.log(data_weather)
+//  //       console.log(active1)
+//  //  http://stackoverflow.com/questions/10024866/remove-object-from-array-using-javascript
+//  //   remove all lines that has NaN
+//  //data_weather=data_weather.filter(function(el){
+//  //  return el.saltrh_3_rh != "NaN";
+//  //});
+//  //console.log(JSON.stringify(data_weather, null, ' '));
+//  // ----------------------above is to obtain the data ------------------------------
+//  
+//  plot_figure(ir,data_weather);
+//  plot_figure(uv   ,data_weather);
+//  plot_figure(patm ,data_weather);
+//  plot_figure(tc,data_weather);
+//  plot_figure(rh,data_weather);
+//  plot_figure(lt   ,data_weather);
+//  plot_figure(rain ,data_weather);
+//  plot_figure(windspeed,data_weather);
+//  plot_figure(winddir,data_weather);
+//  plot_figure(batt,data_weather);
+//})  // json
   
 
  

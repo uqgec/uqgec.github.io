@@ -44,18 +44,18 @@ suction.ylabel="SOIL SUCTION (PA)";
 suction.color = d3.scaleOrdinal(d3.schemeCategory10);
   
 
-var data_sensor;
+var data_sensor_daisy;
 public_key_daisy='RMxqjA6nRXfbm01raooM';
 grf_sensor={scale,mo,temp,suction}
 
-function data_treatment_sensor(d){
+function data_treatment_sensor_daisy(d){
         d.su1=-d.su1;
         d.su2=-d.su2;
         d.su3=-d.su3;
         d.su4=-d.su4;
 }
 
-get_data_and_plot(data_sensor,public_key_daisy,grf_sensor,{treatment_func:data_treatment_sensor})
+//get_data_and_plot(data_sensor,public_key_daisy,grf_sensor,{treatment_func:data_treatment_sensor})
 //// ----------------------below is to obtain the data from the sensors------------------------------
 //var data1;
 //var url =   "https://data.sparkfun.com/output/RMxqjA6nRXfbm01raooM.json"
