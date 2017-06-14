@@ -13,7 +13,7 @@ var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
 // ---------------------below is data defination for the SCALE --------------------------
 scale={};
 scale.key=["mo0","mo10"]//,"mo11"];
-scale.ylim=[0,400];
+scale.ylim=[150,500];
 scale.xlabel="TIME";
 scale.ylabel="SCALE READING";
 scale.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -21,7 +21,7 @@ scale.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the moisture --------------------------
 mo={};
 mo.key=["mo1","mo2","mo3","mo4","mo5","mo6","mo7","mo8","mo9"]//,"mo11"];
-mo.ylim=[0,400];
+mo.ylim=[0,250];
 mo.xlabel="TIME";
 mo.ylabel="MOISTURE SENSOR READING";
 mo.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -38,7 +38,7 @@ temp.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for suction --------------------------
 suction={};
 suction.key=["su1","su2","su3","su4"]; 
-suction.ylim=[0,20000];
+suction.ylim=[-500,20000];
 suction.xlabel="TIME";
 suction.ylabel="SOIL SUCTION (PA)";
 suction.color = d3.scaleOrdinal(d3.schemeCategory10);

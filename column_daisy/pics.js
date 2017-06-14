@@ -1,6 +1,6 @@
 
 // ----------------------draw picture for the entire setup ---------------------
-var svg_pic = d3.select("body")
+var svg_pic = d3.select("#blockDescription")
      .append("svg")
      .attr("width", 1280)
      .attr("height", 1124)
@@ -25,7 +25,7 @@ var imgs = svg_pic.selectAll("image").data([0]);
      .attr("height", "1024");
 
 // ----------------------draw picture for the entire setup ---------------------
-var svg_pic = d3.select("body")
+var svg_pic = d3.select("#blockDescription")
      .append("svg")
      .attr("width", 1280)
      .attr("height", 1124)
@@ -50,11 +50,11 @@ var imgs = svg_pic.selectAll("image").data([0]);
      .attr("height", "1024");
 
 // ----------------------below is to draw picture for the entire setup ---------------------
-var svg_pic_realtime = d3.select("body")
+var svg_pic_realtime = d3.select("#blockDescription")
      .append("svg")
      .attr("href", "https://outbox.eait.uq.edu.au/uqczhan2/photo_roof1/")
      .attr("width", 1280)
-     .attr("height", 1124)
+     .attr("height", 1024)
      .style("border", "0px solid black");
 
 var text = svg_pic_realtime.selectAll("text")
@@ -75,18 +75,4 @@ var imgs = svg_pic_realtime.selectAll("image").data([0]);
      .attr("width", "1280")
      .attr("height", "924");
 
- svg_pic_realtime.append("text")
-            .text("Historical snapshots can be accessed from here")
-            .html("new page")
-
-//	    .attr("href", "https://outbox.eait.uq.edu.au/uqczhan2/photo_roof1/")
-            .style("font-size", "25px")
-            .attr("x", "0")
-            .attr("y", "1050");
- 
- svg_pic_realtime.append("text")
-            .text("Real-time results")
-            .style("font-size", "25px")
-            .attr("x", "0")
-            .attr("y", "1100");
 // ----------------------above is to draw picture for the entire setup ---------------------

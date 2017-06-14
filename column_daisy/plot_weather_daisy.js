@@ -29,14 +29,14 @@ uv.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the atmospheric pressure --------------------------
 patm={};
 patm.key=["p"];
-patm.ylim=[101000,103000];
+patm.ylim=[100000,102800];
 patm.xlabel="TIME";
 patm.ylabel="ATMOSPHERIC PRESSURE (PA)";
 patm.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for temperature --------------------------
 tc={};
 tc.key=["tc"]; 
-tc.ylim=[10,50];
+tc.ylim=[10,35];
 tc.xlabel="TIME";
 tc.ylabel="TEMPERATURE (CELSIUS)";
 tc.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -44,7 +44,7 @@ tc.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for relative humidity --------------------------
 rh={};
 rh.key=["rh"]; 
-rh.ylim=[0,110];
+rh.ylim=[10,130];
 rh.xlabel="TIME";
 rh.ylabel="RELATIVE HUMIDITY (PERCENT)";
 rh.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -74,14 +74,14 @@ windspeed.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for winddirction --------------------------
 winddir={};
 winddir.key=["wdgstdir","wdgstdir10m","wddir","wddiravg2m"]; 
-winddir.ylim=[-10,361];
+winddir.ylim=[-10,370];
 winddir.xlabel="TIME";
 winddir.ylabel="WINDSPEED (M/S)";
 winddir.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for battery -------------------------
 batt={};
 batt.key=["batt"]; 
-batt.ylim=[0,5];
+batt.ylim=[3.8,4.5];
 batt.xlabel="TIME";
 batt.ylabel="BATTERY VOLTAGE (VOLTS)";
 batt.color = d3.scaleOrdinal(d3.schemeCategory10);
