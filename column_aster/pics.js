@@ -1,6 +1,6 @@
 
 // ----------------------draw picture for the entire setup ---------------------
-var svg_pic = d3.select("body")
+var svg_pic = d3.select("#blockDescription")
      .append("svg")
      .attr("width", 1280)
      .attr("height", 1124)
@@ -26,7 +26,7 @@ var imgs = svg_pic.selectAll("image").data([0]);
 
 
 // ----------------------below is to draw picture for the entire setup ---------------------
-var svg_pic_realtime = d3.select("body")
+var svg_pic_realtime = d3.select("#blockDescription")
      .append("svg")
      .attr("width", 1280)
      .attr("height", 1124)

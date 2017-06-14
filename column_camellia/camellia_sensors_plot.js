@@ -43,13 +43,13 @@ del_temp.xlabel="TIME";
 del_temp.ylabel="DELTA TEMPERTURE (CELSIUS)";
 del_temp.color = d3.scaleOrdinal(d3.schemeCategory20);
 
-var data_sensor;
+var data_sensor_daisy;
 public_key='q5YnK9A9qMCqoNqv78XD';
 grf_2={scale,mo,temp,del_temp}
 
 // ----------------------below is to obtain the data from the sensors------------------------------
 
-function data_treatment(d) {
+function data_treatment_sensor_daisy(d) {
 
    d.uv_up=d.uv_up*100.0;
    d.lt=d.lt*100.0;
@@ -69,7 +69,7 @@ function data_treatment(d) {
    };
 
 
-get_data_and_plot(data_sensor,public_key,grf_2,{treatment_func:data_treatment})
+//get_data_and_plot(data_sensor,public_key,grf_2,{treatment_func:data_treatment})
 
 
 

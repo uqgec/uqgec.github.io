@@ -100,7 +100,7 @@ function data_treatment_weather(d){
     };
 
 
-get_data_and_plot(data_weather,public_key_weather,grf_weather,{treatment_func:data_treatment_weather})
+//get_data_and_plot(data_weather,public_key_weather,grf_weather,{treatment_func:data_treatment_weather})
 
 
 

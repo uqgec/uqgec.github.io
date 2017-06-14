@@ -1,0 +1,114 @@
+
+  body { font: 12px Arial;}
+  /* https://stackoverflow.com/questions/220273/use-css-to-reorder-divs*/
+/* #wrapper   { display: table; }
+ #firstDiv  { display: table-footer-group; }
+ #secondDiv { display: table-header-group; } */
+#blockContainer {
+    border: 1px dashed #aaa;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    
+    
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+}
+#blockTitle {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    box-ordinal-group: 1;
+}
+#blockDescription {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    box-ordinal-group: 2;
+}  
+#blockGraph {
+    -webkit-box-ordinal-group: 3;
+    -moz-box-ordinal-group: 3;
+    box-ordinal-group: 3;
+}  
+#blockFooter {
+    -webkit-box-ordinal-group: 4;
+    -moz-box-ordinal-group: 4;
+    box-ordinal-group: 4;
+}  
+  /* global properties for the plot line properties */
+  path { 
+      stroke: steelblue;
+      stroke-width: 3;
+      fill: none;
+  }
+  .axis { font: 18px sans-serif; }
+  .axis path,
+
+  /*<-- global properties for the axes properties--> */
+  /* be careful about the new comment styles */
+  .axis line {
+      fill: none;
+      stroke: black;
+      stroke-width: 3;
+      shape-rendering: crispEdges;
+  }
+  
+  
+  .legend {
+      font-size: 16px;
+      font-weight: bold;
+      text-anchor: middle;
+          }
+  
+  
+  /*below is function to make grid */
+  .grid .tick {
+      stroke: lightgrey;
+      opacity: 0.7;
+  }
+  .grid path {
+        stroke-width: 0;
+  }
+  /*above is function to make grid */
+
+/*-------------- below is for the tab-------------- */
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover 
+hover means mouse goes across*/
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+
+/*-------------- above is for the tab-------------- */
+
+

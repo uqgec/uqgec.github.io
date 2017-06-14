@@ -16,7 +16,7 @@ function make_y_gridlines(y_ax) {
         .ticks(5)
 }
 // -------------------------- above is the function to creat grid lines ---------------
-function plot_figure(prop,data_weather) { 
+function plot_figure(prop,data_weather,plot_location) { 
 
     prop.legendSpace=width/prop.key.length;
     prop.act=[];
@@ -29,7 +29,8 @@ function plot_figure(prop,data_weather) {
             .y(function(d) { return prop.y(d[prop.key[i]]); });
     })
 
-    prop.svg = d3.select("body")
+    //prop.svg = d3.select("body")
+    prop.svg = d3.select(plot_location)
         .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -151,6 +152,7 @@ function get_data_and_plot(data_sensor,public_key,grf,options)
     arg.data_size   = options.data_size || {};
     arg.sw_plot   = options.sw_plot || true;
     arg.treatment_func = options.treatment_func || {};  // check if treatment function is needed
+    arg.plot_location =options.plot_location || 'body'
 
     //console.log(arg.time_out, arg.retry_limit , arg.data_size, arg.sw_plot )
     $.ajax({
@@ -165,18 +167,22 @@ function get_data_and_plot(data_sensor,public_key,grf,options)
           retryLimit :arg.retry_limit,
           timeout: arg.time_out ,
           success : function (json) {
-                json.forEach(function(d) {
-                   d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/187
+               if (typeof arg.treatment_func === "function") { 
+                json.forEach(function(json) {
+                   json.timestamp = d3.timeHour.offset(format(json.timestamp),+10);  // http://stackoverflow.com/questions/187
                    //https://stackoverflow.com/questions/1042138/javascript-check-if-function-exists
-                   if (typeof arg.treatment_func === "function") { 
-                       arg.treatment_func(d)
-                   }
-                });
+                       arg.treatment_func(json)
+                });// json.forEach
+                };
+
+		
                 data_sensor=json;
                 //console.log(data_sensor)
                 if (arg.sw_plot==true) {
+    	       //wait(4000)    
+		   
                     for (var key in grf) {
-                        plot_figure(grf[key],data_sensor);
+                        plot_figure(grf[key],json,arg.plot_location);
                         };
                     }  //sw_plot
                 },

@@ -1,4 +1,3 @@
-}
 // -------------------------- above is the function to creat grid lines ---------------
 
 // below is needed to initializating the picture
