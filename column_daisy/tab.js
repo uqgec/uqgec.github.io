@@ -35,8 +35,8 @@ function openCity(evt, cityName) {
 }
 // https://stackoverflow.com/questions/38099670/tabs-in-html-select-first-tab-by-default
 document.getElementsByClassName('tablinks')[0].click()
-get_data_and_plot(data_weather,public_key_daisy_weather,grf_weather_daisy,{plot_location:'#London',data_size:{page:1}})
-get_data_and_plot(data_sensor_daisy,public_key_daisy,grf_sensor,{treatment_func:data_treatment_sensor_daisy,plot_location:'#London',data_size:{page:1}})
+get_data_and_plot(data_weather,public_key_daisy_weather,grf_weather_daisy,{plot_location:'#London',data_size:{'gte' :{'timestamp' : 'now - 7 days'}}})
+get_data_and_plot(data_sensor_daisy,public_key_daisy,grf_sensor,{treatment_func:data_treatment_sensor_daisy,plot_location:'#London',data_size:{'gte' :{'timestamp' : 'now - 7 days'}}})
 
 // select the second tab, which is a month result
 //https://stackoverflow.com/questions/10479879/how-to-return-array-of-jquery-object-with-selector
@@ -45,8 +45,8 @@ get_data_and_plot(data_sensor_daisy,public_key_daisy,grf_sensor,{treatment_func:
 // eq(1) means the second tab
 
 $( ".tablinks" ).eq(1).one( "click", function() {
-get_data_and_plot(data_weather,public_key_daisy_weather,grf_weather_daisy,{plot_location:'#Paris',data_size:{page:1-2}})
-get_data_and_plot(data_sensor_daisy,public_key_daisy,grf_sensor,{treatment_func:data_treatment_sensor_daisy,plot_location:'#Paris',data_size:{page:1-2}})
+get_data_and_plot(data_weather,public_key_daisy_weather,grf_weather_daisy,{plot_location:'#Paris',data_size:{'gte' :{'timestamp' : 'now - 30 days'}}})
+get_data_and_plot(data_sensor_daisy,public_key_daisy,grf_sensor,{treatment_func:data_treatment_sensor_daisy,plot_location:'#Paris',data_size:{'gte' :{'timestamp' : 'now - 30 days'}}})
 });
 
 
