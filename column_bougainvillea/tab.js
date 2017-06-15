@@ -35,7 +35,7 @@ function openCity(evt, cityName) {
 }
 // https://stackoverflow.com/questions/38099670/tabs-in-html-select-first-tab-by-default
 document.getElementsByClassName('tablinks')[0].click()
-get_data_and_plot(data_sensor_aster,public_key_aster,grf_aster,{plot_location:'#London',data_size:{page:1}});
+get_data_and_plot(data_sensor_boug,public_key_boug,grf_boug,{plot_location:'#London',data_size:{page:1}});
 
 // select the second tab, which is a month result
 //https://stackoverflow.com/questions/10479879/how-to-return-array-of-jquery-object-with-selector
@@ -44,10 +44,10 @@ get_data_and_plot(data_sensor_aster,public_key_aster,grf_aster,{plot_location:'#
 // eq(1) means the second tab
 
 $( ".tablinks" ).eq(1).one( "click", function() {
-get_data_and_plot(data_sensor_aster,public_key_aster,grf_aster,{plot_location:'#Paris',data_size:{page:1-2}});
+get_data_and_plot(data_sensor_boug,public_key_boug,grf_boug,{plot_location:'#Paris',data_size:{page:1-2}});
 });
 
 
 $( ".tablinks" ).eq(2).one( "click", function() {
-get_data_and_plot(data_sensor_aster,public_key_aster,grf_aster,{plot_location:'#Tokyo',data_size:{sample:2}});
+get_data_and_plot(data_sensor_boug,public_key_boug,grf_boug,{plot_location:'#Tokyo',data_size:{sample:2}});
 });

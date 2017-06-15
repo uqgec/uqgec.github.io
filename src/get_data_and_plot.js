@@ -173,7 +173,11 @@ function get_data_and_plot(data_sensor,public_key,grf,options)
                    //https://stackoverflow.com/questions/1042138/javascript-check-if-function-exists
                        arg.treatment_func(json)
                 });// json.forEach
-                };
+                } else {
+                json.forEach(function(json) {
+                   json.timestamp = d3.timeHour.offset(format(json.timestamp),+10);  // http://stackoverflow.com/questions/187
+		});
+		};
 
 		
                 data_sensor=json;

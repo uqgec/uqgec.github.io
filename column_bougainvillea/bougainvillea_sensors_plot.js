@@ -29,14 +29,13 @@ mo.ylabel="MOISTURE SENSOR READING";
 mo.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
-var data_sensor;
-public_key='J4g8nMZrV9TDyqX31x5L';
-grf={scale,mo}
+var data_sensor_boug;
+public_key_boug='J4g8nMZrV9TDyqX31x5L';
+grf_boug={scale,mo}
 
 
   
 
-get_data_and_plot(data_sensor,public_key,grf,{})
  
   
   
