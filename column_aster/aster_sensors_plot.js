@@ -26,10 +26,12 @@ mo.ylabel="MOISTURE SENSOR READING";
 mo.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
+function data_treatment_sensor_aster(d){
+}
 
-var data_sensor;
-public_key='w5nEnw974mswgrx0ALOE';
-grf={scale,mo}
+var data_sensor_aster;
+public_key_aster='w5nEnw974mswgrx0ALOE';
+grf_aster={scale,mo}
 
 
 //$.when( get_data_and_plot(public_key);
@@ -37,7 +39,7 @@ grf={scale,mo}
 // plot_figure(scale,data_sensor);
 // plot_figure(mo,data_sensor);
 //); 
-get_data_and_plot(data_sensor,public_key,grf,{})
+//get_data_and_plot(data_sensor,public_key,grf,{})
 //
 //                plot_figure(scale,data_sensor);
 //                plot_figure(mo,data_sensor);
