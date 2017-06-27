@@ -1,4 +1,14 @@
 
+// below is needed to initializating the picture
+
+// Set the dimensions of the canvas / graph
+// right determins the space for writting things
+var margin = {top: 40, right: 100, bottom: 100, left: 110},  
+    width = 1500 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+//evap1,evap2,mo23,mo25,mo27,mo29,mo31,mo33,mo35,mo37,mo39,mo41,t26_begin,t26_end,t26_peak,t45_begin,t45_end,t45_peak,t57_begin,t57_end,t57_peak,t7b_begin,t7b_end,t7b_peak,te2_begin,te2_end,te2_peak,tfb_begin,tfb_end,tfb_peak,timestamp
+var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
 
 //http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects  
 
@@ -46,7 +56,31 @@ function plot_figure(prop,data_weather,plot_location) {
             .attr("class", "line")
             .style("stroke", prop.color(prop.key[i]))
             .attr("d", prop.valueline[i](data_weather))
-            .attr("id", 'tag'+prop.key[i].replace(/\s+/g, '')); // assign id **
+            .attr("id", 'tag'+prop.key[i].replace(/\s+/g, '')+plot_location.replace(/#/g, '')); // assign id **
+  // below draw dots
+  prop.svg.append("circle")
+      .attr("class", "dot")
+      .attr("r", 3.5)
+      .attr("cx", function(d) { return d.timestamp; })
+      .attr("cy", function(d) { return prop.y(d[prop.key[i]]); });
+//      .style("fill", function(d) { return y(d.(d));}) 
+//      .on("mouseover", function(d) {
+//          tooltip.transition()
+//               .duration(200)
+//               .style("opacity", .9);
+//          tooltip.html(d["Cereal Name"] + "<br/> (" + xValue(d) 
+//	        + ", " + yValue(d) + ")")
+//               .style("left", (d3.event.pageX + 5) + "px")
+//               .style("top", (d3.event.pageY - 28) + "px");
+//      })
+//      .on("mouseout", function(d) {
+//          tooltip.transition()
+//               .duration(500)
+//               .style("opacity", 0);
+//      });
+
+// above dray dots
+
 
         prop.svg.append("text")
             .attr("x", (prop.legendSpace/2)+i*prop.legendSpace)  // space legend
@@ -59,7 +93,7 @@ function plot_figure(prop,data_weather,plot_location) {
                      var active   = prop.act[i] ? false : true,
                      newOpacity = active ? 0 : 1; 
                      // Hide or show the elements based on the ID
-                     d3.select("#tag"+prop.key[i].replace(/\s+/g, ''))
+                     d3.select("#tag"+prop.key[i].replace(/\s+/g, '')+plot_location.replace(/#/g, ''))
                          .transition().duration(100)   
                          .style("opacity", newOpacity); 
                      // Update whether or not the elements are active

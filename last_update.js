@@ -89,7 +89,7 @@ function get_the_latest_json(input,public_key)
           timeout: 1000 ,
           success : function (json) {
                 json.forEach(function(d) {
-                   d.timestamp = d3.timeHour.offset(format(d.timestamp),+10);  // http://stackoverflow.com/questions/187
+                   d.timestamp = d3.timeHour.offset(format(d.timestamp),+9.5);  // http://stackoverflow.com/questions/187
                 });
                 data_sensor=json;
                 console.log(data_sensor)
