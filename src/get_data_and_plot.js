@@ -57,29 +57,9 @@ function plot_figure(prop,data_weather,plot_location) {
             .style("stroke", prop.color(prop.key[i]))
             .attr("d", prop.valueline[i](data_weather))
             .attr("id", 'tag'+prop.key[i].replace(/\s+/g, '')+plot_location.replace(/#/g, '')); // assign id **
-  // below draw dots
-  prop.svg.append("circle")
-      .attr("class", "dot")
-      .attr("r", 3.5)
-      .attr("cx", function(d) { return d.timestamp; })
-      .attr("cy", function(d) { return prop.y(d[prop.key[i]]); });
-//      .style("fill", function(d) { return y(d.(d));}) 
-//      .on("mouseover", function(d) {
-//          tooltip.transition()
-//               .duration(200)
-//               .style("opacity", .9);
-//          tooltip.html(d["Cereal Name"] + "<br/> (" + xValue(d) 
-//	        + ", " + yValue(d) + ")")
-//               .style("left", (d3.event.pageX + 5) + "px")
-//               .style("top", (d3.event.pageY - 28) + "px");
-//      })
-//      .on("mouseout", function(d) {
-//          tooltip.transition()
-//               .duration(500)
-//               .style("opacity", 0);
-//      });
 
-// above dray dots
+
+
 
 
         prop.svg.append("text")
@@ -189,6 +169,7 @@ function get_data_and_plot(data_sensor,public_key,grf,options)
     arg.plot_location =options.plot_location || 'body'
 
     //console.log(arg.time_out, arg.retry_limit , arg.data_size, arg.sw_plot )
+    var offset = new Date().getTimezoneOffset();
     $.ajax({
           url:'https://data.sparkfun.com/output/'+public_key+'.json',
           //data:{page:1,sample:1,limit:1}, // working, getting the latest one! 2017-06-05 11:03
@@ -203,7 +184,7 @@ function get_data_and_plot(data_sensor,public_key,grf,options)
           success : function (json) {
                if (typeof arg.treatment_func === "function") { 
                 json.forEach(function(json) {
-                   json.timestamp = d3.timeHour.offset(format(json.timestamp),+10);  // http://stackoverflow.com/questions/187
+                   json.timestamp = d3.timeHour.offset(format(json.timestamp),-offset/60);  // http://stackoverflow.com/questions/187
                    //https://stackoverflow.com/questions/1042138/javascript-check-if-function-exists
                        arg.treatment_func(json)
                 });// json.forEach
