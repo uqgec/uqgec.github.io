@@ -16,12 +16,30 @@ mo.ylabel="MOISTURE SENSOR READING";
 mo.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
+// ---------------------below is data defination for the MOISTRE SENSOR --------------------------
+temp={};
+temp.key=["temp1","temp2","temp3","temp4","temp5","temp6","temp7","temp8"]
+temp.ylim=[10,40];
+temp.xlabel="TIME";
+temp.ylabel="TEMPERATURE(Celsius)";
+temp.color = d3.scaleOrdinal(d3.schemeCategory10);
+
+
+suction={};
+suction.key=["suction1","suction2","suction3","suction4","suction5","suction6","suction7","suction8"]
+suction.ylim=[-1000,5000];
+suction.xlabel="TIME";
+suction.ylabel="SUCTION(m)";
+suction.color = d3.scaleOrdinal(d3.schemeCategory10);
+
+
+
 function data_treatment_sensor_aster(d){
 }
 
 var data_sensor_aster;
 public_key_aster='w5nEnw974mswgrx0ALOE';
-grf_aster={scale,mo}
+grf_aster={scale,mo,temp,suction}
 
 
 //$.when( get_data_and_plot(public_key);

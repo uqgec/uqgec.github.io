@@ -29,9 +29,28 @@ mo.ylabel="MOISTURE SENSOR READING";
 mo.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
+
+// ---------------------below is data defination for the MOISTRE SENSOR --------------------------
+temp={};
+temp.key=["temp1","temp2","temp3","temp4","temp5","temp6","temp7","temp8"]
+temp.ylim=[10,40];
+temp.xlabel="TIME";
+temp.ylabel="TEMPERATURE(Celsius)";
+temp.color = d3.scaleOrdinal(d3.schemeCategory10);
+
+
+suction={};
+suction.key=["suction1","suction2","suction3","suction4","suction5","suction6","suction7","suction8"]
+suction.ylim=[-1000,5000];
+suction.xlabel="TIME";
+suction.ylabel="SUCTION(m)";
+suction.color = d3.scaleOrdinal(d3.schemeCategory10);
+
+
+
 var data_sensor_boug;
 public_key_boug='J4g8nMZrV9TDyqX31x5L';
-grf_boug={scale,mo}
+grf_boug={scale,mo,temp,suction}
 
 
   
