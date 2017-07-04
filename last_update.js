@@ -21,6 +21,9 @@ var public_area51_redmud='21mmonra90TYXlx9KL4J';
 var $jsValue_concrete_curing= document.querySelector('.jsValue_concrete_curing');
 var public_concrete_curing='jwDYgo7DnmtdRDboA0nQ';
 
+var $jsValue_compacted_redmud= document.querySelector('.jsValue_compacted_redmud');
+var public_compacted_redmud='Vpr5RDVV3VTagYD9L196';
+
 var $jsValue_coal_tailings= document.querySelector('.jsValue_coal_tailings');
 var public_coal_tailings='9J2rX3QZ94s5RJ9LjrbN';
 
@@ -161,6 +164,7 @@ get_the_latest_json($jsValue_daisy,public_daisy)
 get_the_latest_json($jsValue_area51_redmud,public_area51_redmud)
 get_the_latest_json($jsValue_concrete_curing,public_concrete_curing)
 get_the_latest_json($jsValue_coal_tailings,public_coal_tailings)
+get_the_latest_json($jsValue_compacted_redmud,public_compacted_redmud)
 //get_the_latest_json($jsValue5,'RMxqjA6nRXfbm01raooM')
 //      $jsValue4.innerHTML =50
 //get_the_latest_json().done(function (d){
