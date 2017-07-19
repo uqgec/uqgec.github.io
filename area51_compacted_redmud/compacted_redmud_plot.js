@@ -3,7 +3,7 @@
 // ---------------------below is data defination for the SCALE --------------------------
 scale={};
 scale.key=["commercial","te"]
-scale.ylim=[11000,15000];
+scale.ylim=[9000,15000];
 scale.xlabel="TIME";
 scale.ylabel="SCALE READING (g)";
 scale.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -52,7 +52,7 @@ perm.color = d3.scaleOrdinal(d3.schemeCategory10);
 // salinity
 salt={};
 salt.key=["sutp_0_salinity","sutp_3_salinity"]
-salt.ylim=[10000,30000];
+salt.ylim=[00000,30000];
 salt.xlabel="TIME";
 salt.ylabel="SALINITY (PPM)";
 salt.color = d3.scaleOrdinal(d3.schemeCategory10);
