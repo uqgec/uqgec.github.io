@@ -10,7 +10,7 @@ scale.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the MOISTRE SENSOR --------------------------
 mo={};
 mo.key=["mo22","mo23","mo24","mo25","mo26","mo27","mo28"]
-mo.ylim=[100,600];
+mo.ylim=[390,370];
 mo.xlabel="TIME";
 mo.ylabel="MOISTURE SENSOR READING";
 mo.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -19,7 +19,7 @@ mo.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the MOISTRE SENSOR --------------------------
 temp={};
 temp.key=["temp1","temp2","temp3","temp4","temp5","temp6","temp7","temp8"]
-temp.ylim=[14,70];
+temp.ylim=[14,90];
 temp.xlabel="TIME";
 temp.ylabel="TEMPERATURE(Celsius)";
 temp.color = d3.scaleOrdinal(d3.schemeCategory10);

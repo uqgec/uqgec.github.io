@@ -16,7 +16,7 @@ var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
 // ---------------------below is data defination for the SCALE --------------------------
 scale={};
 scale.key=["mo9",]
-scale.ylim=[100,500];
+scale.ylim=[340,350];
 scale.xlabel="TIME";
 scale.ylabel="SCALE READING";
 scale.color = d3.scaleOrdinal(d3.schemeCategory10);
