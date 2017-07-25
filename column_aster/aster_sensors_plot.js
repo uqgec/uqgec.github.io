@@ -3,14 +3,14 @@
 // ---------------------below is data defination for the SCALE --------------------------
 scale={};
 scale.key=["mo31",]
-scale.ylim=[370,390];
+scale.ylim=[350,390];
 scale.xlabel="TIME";
 scale.ylabel="SCALE READING";
 scale.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the MOISTRE SENSOR --------------------------
 mo={};
 mo.key=["mo22","mo23","mo24","mo25","mo26","mo27","mo28"]
-mo.ylim=[200,600];
+mo.ylim=[300,700];
 mo.xlabel="TIME";
 mo.ylabel="MOISTURE SENSOR READING";
 mo.color = d3.scaleOrdinal(d3.schemeCategory10);
