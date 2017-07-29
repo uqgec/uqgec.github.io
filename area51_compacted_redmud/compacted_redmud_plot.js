@@ -27,7 +27,7 @@ temp.color = d3.scaleOrdinal(d3.schemeCategory10);
 //
 delta_t={};
 delta_t.key=["delta_t_2896_heat","delta_t_28a7_heat","delta_t_2870_heat","delta_t_2896_cool","delta_t_28a7_cool","delta_t_2870_cool"]
-delta_t.ylim=[-1,5];
+delta_t.ylim=[-1,30];
 delta_t.xlabel="TIME";
 delta_t.ylabel="TEMPERATURE (Celsius)";
 delta_t.color = d3.scaleOrdinal(d3.schemeCategory10);
