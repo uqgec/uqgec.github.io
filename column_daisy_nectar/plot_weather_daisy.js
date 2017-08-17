@@ -35,7 +35,7 @@ patm.ylabel="ATMOSPHERIC PRESSURE (PA)";
 patm.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for temperature --------------------------
 tc={};
-tc.key=["tc"]; 
+tc.key=["tc","tp_box_45","tp_box_47"]; 
 tc.ylim=[10,35];
 tc.xlabel="TIME";
 tc.ylabel="TEMPERATURE (CELSIUS)";
@@ -43,7 +43,7 @@ tc.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 // ---------------------below is data defination for relative humidity --------------------------
 rh={};
-rh.key=["rh"]; 
+rh.key=["rh","rh_box_45","rh_box_47"]; 
 rh.ylim=[10,130];
 rh.xlabel="TIME";
 rh.ylabel="RELATIVE HUMIDITY (PERCENT)";
@@ -86,8 +86,11 @@ batt.xlabel="TIME";
 batt.ylabel="BATTERY VOLTAGE (VOLTS)";
 batt.color = d3.scaleOrdinal(d3.schemeCategory10);
 
+
+
+
 var data_weather;
-public_key_daisy_weather='JxO9ydlRjnuXARaZX5od';
+public_key_daisy_weather='m09M49erYZtrqxpevXlNTVrVxAG';
 grf_weather_daisy={ir,uv,patm,tc,rh,lt,rain,windspeed,winddir,batt}
 
 //get_data_and_plot(data_weather,public_key_daisy_weather,grf_weather_daisy)

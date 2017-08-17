@@ -4,16 +4,25 @@
 var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
 // ---------------------below is data defination for the SCALE --------------------------
 scale={};
-scale.key=["mo0","mo10"]//,"mo11"];
-scale.ylim=[150,500];
+scale.key=["mo14","mo15"]//,"mo11"];
+scale.ylim=[500,900];
 scale.xlabel="TIME";
 scale.ylabel="SCALE READING";
 scale.color = d3.scaleOrdinal(d3.schemeCategory10);
 
+// ---------------------below is data defination for the SCALE --------------------------
+battery12v={};
+battery12v.key=["mo0"]//,"mo11"];
+battery12v.ylim=[500,1000];
+battery12v.xlabel="TIME";
+battery12v.ylabel="SCALE READING";
+battery12v.color = d3.scaleOrdinal(d3.schemeCategory10);
+
+
 // ---------------------below is data defination for the moisture --------------------------
 mo={};
-mo.key=["mo1","mo2","mo3","mo4","mo5","mo6","mo7","mo8","mo9"]//,"mo11"];
-mo.ylim=[0,250];
+mo.key=["mo1","mo2","mo3","mo4","mo5","mo6","mo7","mo8","mo9","mo10","mo11","mo12","mo13"]//,"mo11"];
+mo.ylim=[0,550];
 mo.xlabel="TIME";
 mo.ylabel="MOISTURE SENSOR READING";
 mo.color = d3.scaleOrdinal(d3.schemeCategory10);
