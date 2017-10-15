@@ -16,14 +16,14 @@ var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
 // ---------------------below is data defination for the SCALE --------------------------
 scale={};
 scale.key=["mo9",]
-scale.ylim=[340,350];
+scale.ylim=[300,450];
 scale.xlabel="TIME";
 scale.ylabel="SCALE READING";
 scale.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the MOISTRE SENSOR --------------------------
 mo={};
 mo.key=["mo0","mo1","mo2","mo3","mo4","mo5","mo6","mo7","mo8"]
-mo.ylim=[100,600];
+mo.ylim=[250,600];
 mo.xlabel="TIME";
 mo.ylabel="MOISTURE SENSOR READING";
 mo.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -41,7 +41,7 @@ temp.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 suction={};
 suction.key=["suction1","suction2","suction3","suction4","suction5","suction6","suction7","suction8"]
-suction.ylim=[-1,5];
+suction.ylim=[-1,4];
 suction.xlabel="TIME";
 suction.ylabel="SUCTION(m)";
 suction.color = d3.scaleOrdinal(d3.schemeCategory10);

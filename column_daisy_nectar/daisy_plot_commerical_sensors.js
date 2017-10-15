@@ -13,9 +13,9 @@ scale.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the SCALE --------------------------
 battery12v={};
 battery12v.key=["mo0"]//,"mo11"];
-battery12v.ylim=[500,1000];
+battery12v.ylim=[8,14];
 battery12v.xlabel="TIME";
-battery12v.ylabel="SCALE READING";
+battery12v.ylabel="BATTERY VOLTAGE (VOLTS)";
 battery12v.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
@@ -47,9 +47,10 @@ suction.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 var data_sensor_daisy;
 public_key_daisy='YZ4yk0xd6qS4MrOkgBYJFm9mVPB';
-grf_sensor={scale,mo,temp,suction}
+grf_sensor={scale,mo,temp,suction,battery12v}
 
 function data_treatment_sensor_daisy(d){
+        d.mo0=d.mo0/1024.0*5.*2.8;
         d.su1=-d.su1;
         d.su2=-d.su2;
         d.su3=-d.su3;

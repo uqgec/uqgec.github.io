@@ -42,12 +42,12 @@ tc.ylabel="TEMPERATURE (CELSIUS)";
 tc.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 // ---------------------below is data defination for relative humidity --------------------------
-rh={};
-rh.key=["rh","rh_box_45","rh_box_47"]; 
-rh.ylim=[10,130];
-rh.xlabel="TIME";
-rh.ylabel="RELATIVE HUMIDITY (PERCENT)";
-rh.color = d3.scaleOrdinal(d3.schemeCategory10);
+rhh={};
+rhh.key=["rh","rh_box_45","rh_box_47"]; 
+rhh.ylim=[0,110];
+rhh.xlabel="TIME";
+rhh.ylabel="RELATIVE HUMIDITY (PERCENT)";
+rhh.color = d3.scaleOrdinal(d3.schemeCategory10);
   
 // ---------------------below is data defination for light --------------------------
 lt={};
@@ -78,21 +78,17 @@ winddir.ylim=[-10,370];
 winddir.xlabel="TIME";
 winddir.ylabel="WINDSPEED (M/S)";
 winddir.color = d3.scaleOrdinal(d3.schemeCategory10);
-// ---------------------below is data defination for battery -------------------------
-batt={};
-batt.key=["batt"]; 
-batt.ylim=[3.8,4.5];
-batt.xlabel="TIME";
-batt.ylabel="BATTERY VOLTAGE (VOLTS)";
-batt.color = d3.scaleOrdinal(d3.schemeCategory10);
-
 
 
 
 var data_weather;
 public_key_daisy_weather='m09M49erYZtrqxpevXlNTVrVxAG';
-grf_weather_daisy={ir,uv,patm,tc,rh,lt,rain,windspeed,winddir,batt}
+grf_weather_daisy={ir,uv,patm,tc,rhh,lt,rain,windspeed,winddir}
 
+function data_treatment_weather_daisy(d){
+        d.rh=d.rh-50;
+        d.rh_box_45=d.rh_box_45+50;
+}
 //get_data_and_plot(data_weather,public_key_daisy_weather,grf_weather_daisy)
 
 //// ----------------------below is to obtain the data from the sensors------------------------------

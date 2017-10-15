@@ -3,7 +3,7 @@
 // ---------------------below is data defination for the SCALE --------------------------
 scale={};
 scale.key=["mo31",]
-scale.ylim=[350,390];
+scale.ylim=[350,460];
 scale.xlabel="TIME";
 scale.ylabel="SCALE READING";
 scale.color = d3.scaleOrdinal(d3.schemeCategory10);
