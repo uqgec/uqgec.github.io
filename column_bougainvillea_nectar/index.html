@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+https://bl.ocks.org/d3noob/4db972df5d7efc7d611255d1cc6f3c4f
+-->
+<meta charset="utf-8">
+<header><title>Column Bougainvillea</title></header>
+
+<head>
+<!-- http://stackoverflow.com/questions/31075893/im-getting-favicon-ico-error -->
+<link rel="shortcut icon" href="/img/gec.ico">
+<link rel="stylesheet" type="text/css" href="/css/plot_page.css">
+</head>
+
+
+<body>
+
+    <!-- load the d3.js library -->    
+    <!-- EXTERNAL LIBS-->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="bougainvillea_sensors_plot.js"> </script>
+    <div id="blockContainer">
+    
+        <div id="blockTitle">
+                <table style="width:100%" border="0">
+                    <tr> 
+		        <th><p id="headline" class="hed" style="font-size:30px">Online monitoring desiccation behaviour of Samarco slime tailings in the Column Bougainvillea located at Geo lab first floor
+                            </p></th>
+                        <th><img src="https://outbox.eait.uq.edu.au/uqczhan2/photo_geo_1st/UQ.jpg"  align="right" style="width:400px;height:122px;"></p></th>
+	            </tr>
+		</table>
+        </div>  <!--blockTitle-->
+
+        <div id="blockDescription">
+            <p class="dek" style="font-size:25px">Description</p> 
+            <p class="dek" style="font-size:17px">The experiment aims to investigate the dessication behaviour of the slime tailings obtained from Samarco</p>
+            <p class="dek" style="font-size:17px">Monitored parameters</p>	
+            <p class="dek" style="font-size:17px">-&gt; 9 moisture content</p>	
+            <p class="dek" style="font-size:17px">-&gt; 8 temperature </p>	
+            <p class="dek" style="font-size:17px">-&gt; 8 soil suction</p>	
+            <p class="dek" style="font-size:17px">-&gt; weight loss due to evaporation</p>	
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript" src="pics.js"> </script> 
+            <script type="text/javascript" src="/src/get_data_and_plot_nectar.js"> </script>
+        </div> <!-- blockDescription --> 
+    
+        <div id="blockGraph">
+            <p style="font-size:20px">The historical snapshot can be found from <a href="https://outbox.eait.uq.edu.au/uqczhan2/bougainvillea/">here</a>
+            <p style="font-size:25px">Real-time results </p>
+            <p style="font-size:20px">Click on the buttons inside the tabbed menu:</p>
+
+    
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'London')">Last 10 days</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">Last 30 days</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">All time</button>
+            </div>
+
+            <div id="London" class="tabcontent">  <!-- style="display:block">-->
+                <h3>Last 10 days</h3>
+                <p>--</p>
+            </div>
+            <div id="Paris" class="tabcontent">
+                <h3>Last 30 days</h3>
+                <p>--</p> 
+            </div> 
+            <div id="Tokyo" class="tabcontent">
+                <h3>All Time</h3>
+                <p>--</p>
+            </div><!-- div for tokyo --> 
+            <script type="text/javascript" src="tab.js"> </script>
+        </div>   <!-- div for blockgraph --> 
+
+        <div id="blockFooter">
+            <p><img src="/img/gec_footer.png" style="max-width:100%;"  >   </p>  
+        </div> <!--blockfooter-->  
+    </div> <!--blockcontainer-->  
+</body>
+    
+    
+
