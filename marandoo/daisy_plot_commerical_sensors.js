@@ -7,7 +7,7 @@ scale={};
 scale.key=["scale1","scale2","scale3"]
 scale.ylim=[-200,2500];
 scale.xlabel="TIME";
-scale.ylabel="SCALE READING";
+scale.ylabel="SCALE READING (g)";
 scale.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 
@@ -17,13 +17,13 @@ mo={};
 mo.key=["vw_1","vw_2","vw_3"]
 mo.ylim=[0,30];
 mo.xlabel="TIME";
-mo.ylabel="MOISTURE SENSOR READING";
+mo.ylabel="MOISTURE SENSOR RAW READING";
 mo.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 // ---------------------below is data defination for the temperature --------------------------
 temp={};
 temp.key=["starttemp_c_1","starttemp_c_2","starttemp_c_3"];
-temp.ylim=[3,40];
+temp.ylim=[10,40];
 temp.xlabel="TIME";
 temp.ylabel="TEMPERATURE (CELSIUS)";
 temp.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -32,7 +32,7 @@ temp.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for suction --------------------------
 suction={};
 suction.key=["deltat_c_1","deltat_c_2","deltat_c_3"]; 
-suction.ylim=[0,4];
+suction.ylim=[0.55,4];
 suction.xlabel="TIME";
 suction.ylabel="TEMPERATURE RISE(CELSIUS)";
 suction.color = d3.scaleOrdinal(d3.schemeCategory10);
