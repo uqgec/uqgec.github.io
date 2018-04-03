@@ -21,7 +21,7 @@ temp2.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 // ---------------------below is data defination for the temperature --------------------------
 hum2={};
-hum2.key=["tmp0","tmp1","tmp2"];
+hum2.key=["tmp0","tmp2"];
 hum2.ylim=[40,110];
 hum2.xlabel="TIME";
 hum2.ylabel="HUMIDITY (PERCENT)";
