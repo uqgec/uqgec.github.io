@@ -37,7 +37,7 @@ function openCity(evt, cityName) {
 document.getElementsByClassName('tablinks')[0].click()
 get_data_and_plot(data_bacteria,public_key_bacteria,grf_bacteria,{treatment_func:data_treatment_weather_daisy,plot_location:'#London',data_size:{'gte' :{'timestamp' : 'now - 7 days'}}})
 get_data_and_plot(data_sensor_daisy,public_key_daisy,grf_sensor,{treatment_func:data_treatment_sensor_daisy,plot_location:'#London',data_size:{'gte' :{'timestamp' : 'now - 7 days'}}})
-
+get_data_and_plot(data_weather,public_key_weather,grf_weather,{treatment_func:data_treatment_weather,plot_location:'#London',data_size:{'gte' :{'timestamp' : 'now - 7 days'}}})
 // select the second tab, which is a month result
 //https://stackoverflow.com/questions/10479879/how-to-return-array-of-jquery-object-with-selector
 // run script only one the first click
@@ -47,10 +47,12 @@ get_data_and_plot(data_sensor_daisy,public_key_daisy,grf_sensor,{treatment_func:
 $( ".tablinks" ).eq(1).one( "click", function() {
 get_data_and_plot(data_bacteria,public_key_bacteria,grf_bacteria,{treatment_func:data_treatment_weather_daisy,plot_location:'#London',data_size:{'gte' :{'timestamp' : 'now - 30 days'}}})
 get_data_and_plot(data_sensor_daisy,public_key_daisy,grf_sensor,{treatment_func:data_treatment_sensor_daisy,plot_location:'#Paris',data_size:{'gte' :{'timestamp' : 'now - 30 days'}}})
+get_data_and_plot(data_weather,public_key_weather,grf_weather,{treatment_func:data_treatment_weather,plot_location:'#Paris',data_size:{'gte' :{'timestamp' : 'now - 30 days'}}})
 });
 
 
 $( ".tablinks" ).eq(2).one( "click", function() {
 get_data_and_plot(data_bacteria,public_key_bacteria,grf_bacteria,{treatment_func:data_treatment_weather_daisy,plot_location:'#London',data_size:{sample:2}})
 get_data_and_plot(data_sensor_daisy,public_key_daisy,grf_sensor,{treatment_func:data_treatment_sensor_daisy,plot_location:'#Tokyo',data_size:{sample:2}})
+get_data_and_plot(data_weather,public_key_weather,grf_weather,{treatment_func:data_treatment_weather,plot_location:'#Tokyo',data_size:{sample:2}})
 });

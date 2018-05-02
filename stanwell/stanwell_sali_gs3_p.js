@@ -5,7 +5,7 @@ var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
 // ---------------------below is data defination for the SCALE --------------------------
 dp={};
 dp.key=["dp0","tmp3"]
-dp.ylim=[-1,32];
+dp.ylim=[-1,50];
 dp.xlabel="TIME";
 dp.ylabel="DIELECTRIC PERMITIVITY";
 dp.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -14,7 +14,7 @@ dp.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the moisture --------------------------
 temp2={};
 temp2.key=["dhttmp0","gstemp0","pretmp0","pretmp1","tmp0","tmp1","tmp4","tmp8"]
-temp2.ylim=[10,40];
+temp2.ylim=[10,50];
 temp2.xlabel="TIME";
 temp2.ylabel="TEMPERATURE(CELSIUS)";
 temp2.color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -39,7 +39,7 @@ hum.color = d3.scaleOrdinal(d3.schemeCategory10);
 // ---------------------below is data defination for the temperature --------------------------
 pre={};
 pre.key=["pre0","pre1"];
-pre.ylim=[1000,1150];
+pre.ylim=[1000,1300];
 pre.xlabel="TIME";
 pre.ylabel="PRESSURE";
 pre.color = d3.scaleOrdinal(d3.schemeCategory10);
