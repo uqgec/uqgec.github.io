@@ -155,7 +155,7 @@ function wait(ms){
 //  // Code
 //}
 // https://stackoverflow.com/questions/33708413/javascript-default-parameters-in-functions-with-multiple-arguments
-function get_data_and_plot(data_sensor,public_key,grf,options)
+function get_data_and_plot(data_sensor,public_key,grf,treat,options)
     {
     //time_out = defaultFor(time_out, 10000)
     //retry_limit = defaultFor(retry_limit, 3)
@@ -168,10 +168,14 @@ function get_data_and_plot(data_sensor,public_key,grf,options)
     arg.treatment_func = options.treatment_func || {};  // check if treatment function is needed
     arg.plot_location =options.plot_location || 'body'
 
+
+
+
+    var data_sensor;
     //console.log(arg.time_out, arg.retry_limit , arg.data_size, arg.sw_plot )
     var offset = new Date().getTimezoneOffset();
-    $.ajax({
-          url:'https://data.sparkfun.com/output/'+public_key+'.json',
+    data_sensor= $.ajax({
+          url:'http://144.6.225.24:8080/output/'+public_key+'.json',
           //data:{page:1,sample:1,limit:1}, // working, getting the latest one! 2017-06-05 11:03
           //data:{limit:1},
           data:arg.data_size,
@@ -185,8 +189,9 @@ function get_data_and_plot(data_sensor,public_key,grf,options)
                if (typeof arg.treatment_func === "function") { 
                 json.forEach(function(json) {
                    json.timestamp = d3.timeHour.offset(format(json.timestamp),-offset/60);  // http://stackoverflow.com/questions/187
+                   treat(json);
                    //https://stackoverflow.com/questions/1042138/javascript-check-if-function-exists
-                   //    arg.treatment_func(json)
+                   //arg.treatment_func(json);
                 });// json.forEach
                 } else {
                 json.forEach(function(json) {
@@ -194,12 +199,13 @@ function get_data_and_plot(data_sensor,public_key,grf,options)
 		});
 		};
 
+                //json.timestamp = d3.timeHour.offset(format(json.timestamp),-offset/60);  // http://stackoverflow.com/questions/187
 		
-                data_sensor=json;
-                //console.log(data_sensor)
+                //data_sensor=json;
+                console.log(data_sensor)
                 if (arg.sw_plot==true) {
     	       //wait(4000)    
-                   arg.treatment_func(json)
+                   //arg.treatment_func(json);
 		   
                     for (var key in grf) {
                         plot_figure(grf[key],json,arg.plot_location);
