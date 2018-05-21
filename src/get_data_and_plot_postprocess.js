@@ -34,7 +34,11 @@ function plot_figure(prop,data_weather,plot_location) {
     prop.x= d3.scaleTime().range([0, width]);
     prop.y= d3.scaleLinear().range([height, 0]);
     prop.key.forEach(function(d,i) {
-        prop.valueline[i]=d3.line()
+        prop.valueline[i]=d3.line()   // this is the reason why the result is a line graph
+            .defined(function (d) { 
+               //return d[prop.key[i]] !== null; 
+               return !isNaN(d[prop.key[i]]); 
+             })
             .x(function(d) { return prop.x(d.timestamp); })
             .y(function(d) { return prop.y(d[prop.key[i]]); });
     })
@@ -53,7 +57,7 @@ function plot_figure(prop,data_weather,plot_location) {
     
     prop.key.forEach(function(d,i) {
         prop.svg.append("path")
-            .attr("class", "line")
+            .attr("class", "dot")
             .style("stroke", prop.color(prop.key[i]))
             .attr("d", prop.valueline[i](data_weather))
             .attr("id", 'tag'+prop.key[i].replace(/\s+/g, '')+plot_location.replace(/#/g, '')); // assign id **
@@ -79,14 +83,17 @@ function plot_figure(prop,data_weather,plot_location) {
                      // Update whether or not the elements are active
                      prop.act[i] = active; 
                      }) 
-           .text(prop.key[i]); 
+           .text(prop.legend[i]); 
     });
 
     // Add the X Axis
     prop.svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
+        .style("font-weight","bold")
         .call(d3.axisBottom(prop.x));
+        //.selectAll("text")
+        //   .attr("transform", "rotate(45)");
 
 
     // text label for the x axis
@@ -94,19 +101,23 @@ function plot_figure(prop,data_weather,plot_location) {
         .attr("transform",
               "translate(" + (width/2) + " ," + 
                              (height + margin.top + 40) + ")") // location of x axis
+        //.attr("transform", "rotate(45)")
         .style("text-anchor", "middle")
         .style("font-size", "20px")
+        .style("font-weight","bold")
         .text(prop.xlabel);
 
     // Add the Y Axis
     prop.svg.append("g")
         .attr("class", "y axis")
+        .style("font-weight","bold")
         .call(d3.axisLeft(prop.y));
 
 
     // Add the Y Axis on the right hand side
     prop.svg.append("g")
         .attr("class", "y axis")
+        .style("font-weight","bold")
         .attr("transform", "translate(" + width + " ,0)")
         .call(d3.axisRight(prop.y));   // this right here means the label is on the right hand side of the axis
 
@@ -118,6 +129,7 @@ function plot_figure(prop,data_weather,plot_location) {
          .attr("dy", "1em")
          .style("text-anchor", "middle")
          .style("font-size", "18px")
+        .style("font-weight","bold")
          .text(prop.ylabel);    
 
     // draw grid lines
@@ -128,6 +140,7 @@ function plot_figure(prop,data_weather,plot_location) {
             .tickSize(-height, 0, 0)
             .tickFormat("")
         )
+
     prop.svg.append("g")         
         .attr("class", "grid")
         .call(make_y_gridlines(prop.y)
@@ -155,7 +168,7 @@ function wait(ms){
 //  // Code
 //}
 // https://stackoverflow.com/questions/33708413/javascript-default-parameters-in-functions-with-multiple-arguments
-function get_data_and_plot(data_sensor,public_key,grf,treat,options)
+function get_data_and_plot(public_key,grf,treat,options)
     {
     //time_out = defaultFor(time_out, 10000)
     //retry_limit = defaultFor(retry_limit, 3)
@@ -171,7 +184,7 @@ function get_data_and_plot(data_sensor,public_key,grf,treat,options)
 
 
 
-    var data_sensor;
+    //var data_sensor;
     //console.log(arg.time_out, arg.retry_limit , arg.data_size, arg.sw_plot )
     var offset = new Date().getTimezoneOffset();
     data_sensor= $.ajax({
@@ -189,6 +202,13 @@ function get_data_and_plot(data_sensor,public_key,grf,treat,options)
                if (typeof arg.treatment_func === "function") { 
                 json.forEach(function(json) {
                    json.timestamp = d3.timeHour.offset(format(json.timestamp),-offset/60);  // http://stackoverflow.com/questions/187
+
+                    for (var hand in grf) {
+                          grf[hand].key.forEach(function(i) {
+                        //   for (var i in grf[hand].key){
+                        json[i]=parseFloat(json[i]);
+                           });
+                         };//hand in graf
                    treat(json);
                    //https://stackoverflow.com/questions/1042138/javascript-check-if-function-exists
                    //arg.treatment_func(json);
@@ -202,7 +222,7 @@ function get_data_and_plot(data_sensor,public_key,grf,treat,options)
                 //json.timestamp = d3.timeHour.offset(format(json.timestamp),-offset/60);  // http://stackoverflow.com/questions/187
 		
                 //data_sensor=json;
-                console.log(data_sensor)
+                //return data_sensor
                 if (arg.sw_plot==true) {
     	       //wait(4000)    
                    //arg.treatment_func(json);
@@ -255,4 +275,6 @@ function get_data_and_plot(data_sensor,public_key,grf,treat,options)
                 }//else
             } //error
                });//ajax
+           //console.log(data_sensor);
+           return data_sensor;
     }; //function
