@@ -35,10 +35,11 @@
     -moz-box-ordinal-group: 4;
     box-ordinal-group: 4;
 }  
-  /* global properties for the plot line properties */
+  /* global properties for the plot line properties 
+   particularly for the boundary lines*/
   path { 
-      stroke: steelblue;
-      stroke-width: 3;
+      stroke: black;
+      stroke-width: 5;
       fill: none;
   }
   .axis { font: 18px sans-serif; }
@@ -49,7 +50,7 @@
   .axis line {
       fill: none;
       stroke: black;
-      stroke-width: 3;
+      stroke-width: #070707;
       shape-rendering: crispEdges;
   }
   
@@ -59,7 +60,12 @@
       font-weight: bold;
       text-anchor: middle;
           }
-  
+/*
+  .background {
+    fill: #e7e7e7;
+  }  
+
+*/
   
   /*below is function to make grid */
   .grid .tick {
@@ -67,12 +73,13 @@
       opacity: 0.7;
   }
   .grid path {
-        stroke-width: 0;
+        stroke-width: 2;
   }
   /*above is function to make grid */
 
 /*-------------- below is for the tab-------------- */
 /* Style the tab */
+
 div.tab {
     overflow: hidden;
     border: 1px solid #ccc;

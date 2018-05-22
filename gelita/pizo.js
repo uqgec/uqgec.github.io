@@ -6,7 +6,7 @@ var format = d3.timeParse('%Y-%m-%dT%H:%M:%S.%LZ')
 // ---------------------below is data defination for the moisture --------------------------
 tmp={};
 tmp.key=["tmp0","tmp1","tmp2"];
-tmp.legend=["air temperature","Borehole DZ1.2","Borehole DZ1.2"];
+tmp.legend=["Air Temperature","Borehole DZ1.2","Borehole DZ1.2"];
 tmp.ylim=[0,50];
 tmp.xlabel="TIME";
 tmp.ylabel="TEMPERATURE(CELSIUS)";
@@ -24,25 +24,33 @@ pretmp.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 // ---------------------below is data defination for the temperature --------------------------
 pre={};
-pre.key=["pre0","pre1","pre2"];
-pre.legend=["Atmosphere","Pressure Borehole DZ1.2","Pressure Borehole DZ1.2"];
-pre.ylim=[900,1300];
+pre.key=["pre0"];
+pre.legend=["Atmospheric Pressure"];
+pre.ylim=[980,1040];
 pre.xlabel="TIME";
 pre.ylabel="PRESSURE(MBAR)";
 pre.color = d3.scaleOrdinal(d3.schemeCategory10);
 
+// ---------------------below is data defination for the temperature --------------------------
+bore12={};
+bore12.key=["pre1","pre2"];
+bore12.legend=["Absolute Pressure From Borehole DZ1.2","Absolute Pressure From Borehole DZ1.2"];
+bore12.ylim=[1250,1300];
+bore12.xlabel="TIME";
+bore12.ylabel="PRESSURE(MBAR)";
+bore12.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 battery={};
 battery.key=["volt0"];
 battery.legend=["Battery Voltage"];
-battery.ylim=[3,15];
+battery.ylim=[8,14];
 battery.xlabel="TIME";
 battery.ylabel="VOLTAGE(volts)";
 battery.color = d3.scaleOrdinal(d3.schemeCategory10);
 
 var data_pizo;
 public_key_pizo='zYmKOMGKArTZwlAmmAAEfYYrrPd';
-grf_pizo={tmp,pretmp,pre,battery};
+grf_pizo={tmp,pretmp,pre,bore12,battery};
 
 function data_treatment_pizo(d){
         //d.mo0=d.mo0/1024.0*5.*2.8;

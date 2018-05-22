@@ -55,6 +55,15 @@ function plot_figure(prop,data_weather,plot_location) {
     prop.x.domain(d3.extent(data_weather, function(d) { return d.timestamp; }));
     prop.y.domain(prop.ylim);
     
+
+    prop.svg.append("rect")
+        .attr("class", "background")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("opacity","50%")
+        .attr("fill","#efefef")
+        //.attr("fill", "lightblue");
+    
     prop.key.forEach(function(d,i) {
         prop.svg.append("path")
             .attr("class", "dot")

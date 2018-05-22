@@ -25,7 +25,7 @@ function openCity(evt, cityName) {
 }
 // https://stackoverflow.com/questions/38099670/tabs-in-html-select-first-tab-by-default
 document.getElementsByClassName('tablinks')[0].click()
-data_pizo=get_data_and_plot(public_key_pizo,grf_pizo,data_treatment_pizo,{treatment_func:data_treatment_pizo,plot_location:'#London',data_size:{'gte' :{'timestamp' : 'now - 7 days'}}})
+data_pizo=get_data_and_plot(public_key_pizo,grf_pizo,data_treatment_pizo,{treatment_func:data_treatment_pizo,plot_location:'#London',data_size:{'gte' :{'timestamp' : 'now - 10 days'}}})
 //get_data_and_plot(data_sensor_qal,public_key_sensor_qal,grf_sensor,{treatment_func:data_treatment_sensor_qal,plot_location:'#London',data_size:{'gte' :{'timestamp' : 'now - 7 days'}}})
 
 // select the second tab, which is a month result
